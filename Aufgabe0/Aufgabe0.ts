@@ -10,7 +10,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    var name = prompt("Bitte geben Sie Ihren Namen ein.");
-    var gruss = "Herzlich Willkommen ";
-    document.body.innerHTML = gruss + name;
+    var name:string = prompt("Bitte geben Sie Ihren Namen ein.");
+    var willkommen:string = "Herzlich Willkommen ";
+    document.body.innerHTML = willkommen + name;
 });
