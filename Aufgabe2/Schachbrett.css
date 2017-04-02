@@ -1,0 +1,38 @@
+/*
+Aufgabe: 2 - Schachbrett
+Name: Matthias Fischer
+Matrikel: 255035
+Datum: 01.04.17
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+
+div {
+	width: 12.5%;
+	height: 225px;
+	float: left;
+	text-align: center;
+	line-height: 200px;
+	
+}
+
+.black {
+	background-color: black;
+	color: white;
+}
+
+.white {
+	background-color: white;
+	color: black;
+}
+
+.floating {
+	clear: both;
+}
+
+body {
+	background-color: maroon;
+	padding: 15px;
+}
+
