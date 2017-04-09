@@ -1,0 +1,35 @@
+div {
+	width: 12.5%;
+	height: 225px;
+	float: left;
+	text-align: center;
+	line-height: 200px;
+	
+}
+
+.black {
+	background-color: black;
+	color: white;
+}
+
+.white {
+	background-color: white;
+	color: black;
+}
+
+.floating {
+	clear: both;
+}
+
+body {
+	padding: 15px;
+}
+
+.markiert {
+	background-color: #F7BE81;
+	background-opacity: 0.5;
+}
+
+#position {
+	display: none;
+}
