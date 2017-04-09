@@ -19,34 +19,36 @@ document.addEventListener('DOMContentLoaded', function () {
     //    1.1 Bedingung : Man soll nur eine Karte ziehen k�nnen, wenn sich auf dem Stapel mehr als 0 Karten befinden
     //    1.2 Bedingung : Man soll nur eine Karte ziehen k�nnen, wenn auf der Hand noch platz ist, d.h. wenn sich auf der Hand weniger als 5 Karten befinden
     //    Was passieren soll, wenn beide Bedingungen erf�llt sind:
-    //      2.1 Eine zuf�llige Karte soll aus dem Array "nachziehstapel" ausgegeben werden
-    //      2.2 Die gezogene Karte soll aus dem nachziehstapel-Array herausgenommen werden
-    //      2.3 Die gezogene Karte soll dem hand-Array hinzugef�gt werden
-    //      2.4 Die Karte soll auf der Hand dargestellt werden
-    //      2.5 Die Funktion soll durch anklicken des Nachziehstapels ausgef�hrt werden
+    //      1.3 Eine zuf�llige Karte soll aus dem Array "nachziehstapel" ausgegeben werden
+    //      1.4 Die gezogene Karte soll aus dem nachziehstapel-Array herausgenommen werden
+    //      1.5 Die gezogene Karte soll dem hand-Array hinzugef�gt werden
+    //      1.6 Die Karte soll auf der Hand dargestellt werden
+    //      1.7 Die Funktion soll durch anklicken des Nachziehstapels ausgef�hrt werden
+    // 1.7
     document.getElementById("Nachziehstapel").addEventListener("click", getRandomCard);
     function getRandomCard() {
+        // 1.1 & 1.2
         if (nachziehstapel.length > 0 && hand.length < 5) {
             n--;
-            //Berechnen der Karte im Array mit Zufallszahl
+            // 1.3
             var i = Math.floor((Math.random() * n) + 0);
-            //Karte vom Nachziehstapel-Array in das Hand-Array verschieben
+            // 1.4 & 1.5
             let ziehen = nachziehstapel[i];
             nachziehstapel.splice(i, 1);
             hand.push(ziehen);
-            document.getElementById("nachziehstapel").textContent = "Nachziehstapel " + "\r\n" + "Karten: " + nachziehstapel.length;
-            //Div f�r die gezogene Handkarte erstellen
+            document.getElementById("Nachziehstapel").textContent = "Nachziehstapel " + "\r\n" + "Karten: " + nachziehstapel.length;
+            // 1.6
             let div = document.createElement("div");
             document.getElementById("Hand").appendChild(div);
             div.textContent = ziehen;
-            //Styleanpassung f�r die Handkarten
+            // Handkarten werden gestylt
             let s = div.style;
             s.cssFloat = "left";
-            s.border = "solid 4px black";
+            s.border = "2px solid black";
             s.display = "inline";
             s.textAlign = "center";
             s.fontSize = "2em";
-            s.backgroundColor = "#aaa";
+            s.backgroundColor = "grey";
             s.width = "4em";
             s.height = "6em";
             s.marginLeft = "1em";
@@ -57,19 +59,19 @@ document.addEventListener('DOMContentLoaded', function () {
     //    2.1 Angeklickte Karte soll aus dem Hand-Array entfert werden
     //    2.2 Angeklickte Karte soll dem Ablagestapel-Array hinzugef�gt werden
     //    2.3 Das DIV der angeklickten Karte soll nicht mehr angezeigt werden
+    document.getElementById("Hand").addEventListener("click", layDownCard);
     function layDownCard() {
-        //Schleife zum Pr�fen des Inhalts der Handkarten
         for (let i = 0; i < hand.length; i++) {
             if (this.textContent == hand[i]) {
-                //Karte zum Ablagestapel-Array hinzuf�gen
+                // 2.2
                 ablagestapel.push(hand[i]);
-                //Karte aus dem Hand-Array entfernen
+                // 2.1
                 hand.splice(i, 1);
                 break;
             }
         }
         document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + ablagestapel.length;
-        //div der abgelegten Handkarte entfernen
+        // 2.3
         this.parentNode.removeChild(this);
     }
 });
