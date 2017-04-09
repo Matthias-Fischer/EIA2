@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Zuerst werden 3 Arrays erstellt. Im ersten Array sind die 32 Spielkarten aufgelistet. 
     // Die anderen beiden beinhalten noch keine Werte, da sich zunächst alle 32 Karten auf dem Nachziehstapel befinden
     
-    let nachziehstapel : string [] = [ "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo König", "Karo As",
-                           "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz König", "Kreuz As",
-                           "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz König", "Herz As",
-                           "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik König", "Pik As"];
+    let nachziehstapel : string [] = [ "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo Koenig", "Karo As",
+                           "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz Koenig", "Kreuz As",
+                           "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz Koenig", "Herz As",
+                           "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik Koenig", "Pik As"];
     
     let hand : string [] = [];
     let ablagestapel : string [] = [];

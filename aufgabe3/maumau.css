@@ -12,9 +12,9 @@
 }
 
 #Nachziehstapel {
-	background-image: url(Karte.jpg);
-	background-size: cover;
-	color: yellow;
+	
+	color: black;
+	background-color: lightgray;
 }
 
 
@@ -24,4 +24,5 @@
 	left: 15em;
 	width: auto;
 	height: auto;
+	font-size: 1em;
 }
