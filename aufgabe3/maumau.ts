@@ -32,10 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
     //      2.5 Die Funktion soll durch anklicken des Nachziehstapels ausgeführt werden
     
     
-    function getRandomCard () {
+    document.getElementById("Nachziehstapel").addEventListener("click", getRandomCard);
+    
+    function getRandomCard() {
         
         if (nachziehstapel.length > 0 && hand.length < 5) {
-            //Anpassen der Berechnungsvariablen für die Zufallsauswahl der Karten
             n--;
             //Berechnen der Karte im Array mit Zufallszahl
             var i = Math.floor((Math.random() * n) + 0);
@@ -63,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 }
-        
+       
+    
     
     // 2. FUNKTION - Karte ablegen - Eine Karte soll vom Nachziehstapel genommen werden
     //    Was passieren soll:
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //    2.3 Das DIV der angeklickten Karte soll nicht mehr angezeigt werden
     
     
-    function layDownCard () {
+    function layDownCard() {
         
         //Schleife zum Prüfen des Inhalts der Handkarten
                 for (let i = 0; i < hand.length; i++) {

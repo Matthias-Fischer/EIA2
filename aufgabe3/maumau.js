@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
     //      2.3 Die gezogene Karte soll dem hand-Array hinzugef�gt werden
     //      2.4 Die Karte soll auf der Hand dargestellt werden
     //      2.5 Die Funktion soll durch anklicken des Nachziehstapels ausgef�hrt werden
+    document.getElementById("Nachziehstapel").addEventListener("click", getRandomCard);
     function getRandomCard() {
         if (nachziehstapel.length > 0 && hand.length < 5) {
-            //Anpassen der Berechnungsvariablen f�r die Zufallsauswahl der Karten
             n--;
             //Berechnen der Karte im Array mit Zufallszahl
             var i = Math.floor((Math.random() * n) + 0);
