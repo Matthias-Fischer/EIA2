@@ -2,7 +2,7 @@
 //Name: Matthias Fischer
 //Matrikel: 255035
 //Datum: 01.04.17
-//    
+//Dieser Code wurde in Zusammenarbeit mit Marcel Riedel erstellt
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 window.onload = function (): void {
