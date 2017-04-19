@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             s.width = "4em";
             s.height = "6em";
             s.marginLeft = "1em";
+            div.addEventListener("click", layDownCard);
         }
     }
     // 2. FUNKTION - Karte ablegen - Eine Karte soll vom Nachziehstapel genommen werden
@@ -59,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //    2.1 Angeklickte Karte soll aus dem Hand-Array entfert werden
     //    2.2 Angeklickte Karte soll dem Ablagestapel-Array hinzugef�gt werden
     //    2.3 Das DIV der angeklickten Karte soll nicht mehr angezeigt werden
-    document.getElementById("Hand").addEventListener("click", layDownCard);
     function layDownCard() {
         for (let i = 0; i < hand.length; i++) {
             if (this.textContent == hand[i]) {
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
             }
         }
-        document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + ablagestapel.length;
+        document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + ablagestapel.length + "\r\n" + " Karte: " + this.textContent;
         // 2.3
         this.parentNode.removeChild(this);
     }
