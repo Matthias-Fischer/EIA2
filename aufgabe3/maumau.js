@@ -48,10 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
             s.display = "inline";
             s.textAlign = "center";
             s.fontSize = "2em";
-            s.backgroundColor = "grey";
+            s.backgroundColor = "#F2F2F2";
             s.width = "4em";
             s.height = "6em";
             s.marginLeft = "1em";
+            s.borderRadius = "5px";
+            s.cursor = "pointer";
             div.addEventListener("click", layDownCard);
         }
     }
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
             }
         }
-        document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + ablagestapel.length + "\r\n" + " Karte: " + this.textContent;
+        document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + ablagestapel.length + "\r\n" + "oberste Karte: " + this.textContent;
         // 2.3
         this.parentNode.removeChild(this);
     }
