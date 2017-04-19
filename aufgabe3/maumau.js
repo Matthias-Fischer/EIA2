@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             s.marginLeft = "1em";
             s.borderRadius = "5px";
             s.cursor = "pointer";
+            s.boxShadow = "5px 5px 10px black";
             div.addEventListener("click", layDownCard);
         }
     }
