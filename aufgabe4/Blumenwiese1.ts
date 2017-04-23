@@ -43,18 +43,18 @@ namespace L4_Canvas {
         
         drawWolke("white", "white");
         
-        drawFlower_1(120, 430, "white", "white");
+        drawBlume_1(120, 430, "white", "white");
         
-        drawFlower_1(220, 380, "#A9BCF5", "#A9BCF5");
+        drawBlume_1(220, 380, "#A9BCF5", "#A9BCF5");
         
-        drawFlower_2(50, 380, "red", "yellow");
-        drawFlower_2(140, 360, "red", "#2ECCFA");
+        drawBlume_2(50, 380, "red", "yellow");
+        drawBlume_2(140, 360, "red", "#2ECCFA");
         
-        drawFlower_3(180, 440, "red", "#088A4B");
-        drawFlower_3(50, 460, "red", "#610B21");
-        drawFlower_3(280, 340, "red", "#610B21");
+        drawBlume_3(180, 440, "red", "#088A4B");
+        drawBlume_3(50, 460, "red", "#610B21");
+        drawBlume_3(280, 340, "red", "#610B21");
         
-        drawFlowerRandom();
+        drawBlumeRandom();
      
    }
     
@@ -265,7 +265,7 @@ namespace L4_Canvas {
         
  // FUNKTIONEN Blumen   
 
-    function drawFlower_1(_x, _y, _strokeColor, _fillColor) {
+    function drawBlume_1(_x, _y, _strokeColor, _fillColor) {
         //Blüte
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
@@ -283,7 +283,7 @@ namespace L4_Canvas {
         crc2.fill();
     }
     
-    function drawFlower_2(_x, _y, _strokeColor, _fillColor) {
+    function drawBlume_2(_x, _y, _strokeColor, _fillColor) {
         //Blüte
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
@@ -301,7 +301,7 @@ namespace L4_Canvas {
         crc2.fill();
     }
     
-    function drawFlower_3(_x, _y, _strokeColor, _fillColor) {
+    function drawBlume_3(_x, _y, _strokeColor, _fillColor) {
         //Blüte
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
@@ -322,10 +322,10 @@ namespace L4_Canvas {
     
     // ZUFALLSFUNKTION
     
-    function drawFlowerRandom() {
-        var numberFlowers = Math.floor((Math.random() * 10) + 5); //Zufallszahl zwischen 5 - 15
-        console.log(numberFlowers);
-        for (var i = 0; i < numberFlowers; i++) {
+    function drawBlumeRandom() {
+        var numberBlumen = Math.floor((Math.random() * 10) + 5); //Zufallszahl zwischen 5 - 15
+        console.log(numberBlumen);
+        for (var i = 0; i < numberBlumen; i++) {
             var x: number;
             var y: number;
             var p: number;
@@ -335,13 +335,13 @@ namespace L4_Canvas {
             p = Math.floor((Math.random() * 3) + 0);
             switch (p) {
                 case 0:
-                    drawFlower_1(x, y, "#A9BCF5", "#A9BCF5");
+                    drawBlume_1(x, y, "#A9BCF5", "#A9BCF5");
                     break;
                 case 1:
-                    drawFlower_2(x, y,"white", "white");
+                    drawBlume_2(x, y,"white", "white");
                     break;
                 case 2:
-                    drawFlower_3(x, y, "red", "#088A4B");
+                    drawBlume_3(x, y, "red", "#088A4B");
                     break;
                 default:
                     break;
