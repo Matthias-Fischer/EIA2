@@ -1,3 +1,9 @@
+//Aufgabe: 5 - Bienenschwarm
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 30.04.17 
+//Code in Zusammenarbeit mit Mario Sommer erstellt
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
@@ -32,22 +38,29 @@ var L4_Canvas;
         drawTanne1(125, 170, 30, "#000000", "#0B610B");
         drawTanne1(125, 150, 25, "#000000", "#0B610B");
         drawWieseForeground("#000000", "#00ff00");
-        drawFluss("#000000", "#0040FF");
+        //drawFluss("#000000", "#0040FF");
         drawSonne("#FFBF00", "#F4FA58");
         drawWolke("white", "white");
         drawBlume_1(120, 430, "white", "white");
+        drawBlume_1(240, 430, "white", "white");
         drawBlume_1(220, 380, "#A9BCF5", "#A9BCF5");
         drawBlume_2(50, 380, "red", "yellow");
         drawBlume_2(140, 360, "red", "#2ECCFA");
+        drawBlume_2(300, 380, "red", "yellow");
         drawBlume_3(180, 440, "red", "#088A4B");
         drawBlume_3(50, 460, "red", "#610B21");
+        drawBlume_3(400, 350, "red", "#610B21");
+        drawBlume_3(300, 460, "red", "#610B21");
+        drawBlume_3(350, 320, "red", "#610B21");
         //drawBlume_3(280, 340, "red", "#610B21");
         drawBlumeRandom();
         drawBienenkorb();
+        drawBear();
+        drawAst();
         copyPicture();
         for (let i = 0; i < n; i++) {
-            x[i] = 255;
-            y[i] = 295;
+            x[i] = 675;
+            y[i] = 230;
         }
         canvas.addEventListener("click", addBiene);
         window.setTimeout(animate, 20);
@@ -56,7 +69,7 @@ var L4_Canvas;
         console.log("Animate called");
         crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
-            x[i] += Math.random() * 15 - 6;
+            x[i] += Math.random() * 11 - 6;
             y[i] += Math.random() * 11 - 6;
             drawBiene(x[i], y[i]);
             // rechts raus, links rein
@@ -64,11 +77,11 @@ var L4_Canvas;
                 x[i] = 0;
             }
             // links raus, rechts rein
-            if (x[i] < 0) {
+            if (x[i] < -40) {
                 x[i] = 800;
             }
             //oben raus, unten rein   
-            if (y[i] < 0) {
+            if (y[i] < -40) {
                 y[i] = 480;
             }
             //unten raus, oben rein   
@@ -90,8 +103,8 @@ var L4_Canvas;
         crc2.putImageData(imgData, 0, 0);
     }
     function addBiene() {
-        x.push(255);
-        y.push(295);
+        x.push(675);
+        y.push(230);
         n += 1;
         console.log("Die Funktion wird aufgerufen");
     }
@@ -173,18 +186,18 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawFluss(_strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(180, 480);
-        crc2.lineTo(420, 248);
-        crc2.lineTo(460, 242);
-        crc2.lineTo(400, 480);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-    }
+    //    function drawFluss(_strokeColor: string, _fillColor: string): void {
+    //        crc2.beginPath();
+    //        crc2.fillStyle = _fillColor;
+    //        crc2.strokeStyle = _strokeColor;
+    //        crc2.moveTo(180, 480);
+    //        crc2.lineTo(420, 248);
+    //        crc2.lineTo(460, 242);
+    //        crc2.lineTo(400, 480);
+    //        crc2.closePath();
+    //        crc2.fill();
+    //        crc2.stroke();
+    //    }
     function drawSonne(_strokeColor, _fillColor) {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
@@ -341,7 +354,7 @@ var L4_Canvas;
     }
     function drawBienenkorb() {
         var img = document.getElementById("korb");
-        crc2.drawImage(img, 200, 180);
+        crc2.drawImage(img, 650, 182);
         //        crc2.beginPath();
         //        crc2.moveTo(220, 300);
         //        crc2.bezierCurveTo(220, 150, 320, 150, 320, 300);
@@ -355,6 +368,14 @@ var L4_Canvas;
         //        crc2.fillStyle = "black";
         //        crc2.closePath();
         //        crc2.fill();
+    }
+    function drawBear() {
+        var img = document.getElementById("Bear");
+        crc2.drawImage(img, 450, 150);
+    }
+    function drawAst() {
+        var img = document.getElementById("ast");
+        crc2.drawImage(img, 610, 150);
     }
     // ZUFALLSFUNKTION
     function drawBlumeRandom() {
