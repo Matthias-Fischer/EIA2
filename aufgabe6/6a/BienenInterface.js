@@ -1,7 +1,7 @@
-//Aufgabe: 5 - Bienenschwarm
+//Aufgabe: 6 - Bienenschwarm
 //Name: Matthias Fischer
 //Matrikel: 255035
-//Datum: 30.04.17 
+//Datum: 07.05.17 
 //Code in Zusammenarbeit mit Mario Sommer erstellt
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L4_Canvas;
