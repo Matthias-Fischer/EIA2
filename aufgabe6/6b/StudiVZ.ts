@@ -1,3 +1,13 @@
+//Aufgabe: 6 - StudiVZ
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 07.05.17 
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+
+
+
+
 namespace StudiVZ {
 
     interface StudentData {
@@ -79,21 +89,21 @@ namespace StudiVZ {
         //Nun wird die Ausgabe definiert
         return "Diese Daten wurden gespeichert: \nMatrikelnummer: " + daten.Matrikelnummer + "\nName: " + daten.Nachname + "\nVorname: " + daten.Vorname + "\nAlter: " + daten.Alter + "\nGeschlecht: " + geschlecht + "\nKommentar: " + daten.Kommentar;
     }
-    
+
     //„queryData“ nimmt eine Matrikelnummer entgegen und liefert den darunter in students 
     //gefundenen Datensatz als formatierten String zurück, oder 
     //eine entsprechende Meldung, wenn unter der Nummer keine Daten gefunden wurden.
-    
+
     function queryData(_matrikel: number): string {
         for (let i: number = 0; i < students.length; i++) {
-            
+
             //Stimmt die nun eingegebene Matrikelnummer mit der zuvor gespeicherten überein, werden die Daten, die zu dieser Nummer passen angezeigt
             if (students[i].Matrikelnummer == _matrikel) {
                 let geschlecht: string = students[i].Geschlecht ? "m" : "w";
                 return "Folgende Daten sind unter der eingegebenen Matrikelnummer gespeichert: \nMatrikelnummer: " + students[i].Matrikelnummer + "\nName: " + students[i].Nachname + "\nVorname: " + students[i].Vorname + "\nAlter: " + students[i].Alter + "\nGeschlecht: " + geschlecht + "\nKommentar: " + students[i].Kommentar;
             }
         }
-        
+
         //Ist dies nicht der Fall, wird folgende Ausgabe angezeigt
         return "Der eingegebenen Matrikelnummer konnten keine Daten zugewiesen werden.";
     }
