@@ -115,9 +115,8 @@ var L4_Canvas;
         crc2.putImageData(imgData, 0, 0);
     }
     function addBiene(_event) {
-        //        bienen.push({ x: 675, y: 230, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 30 + 10});
-        //        n += 1;
-        //        console.log("Die Funkt aufgerufen");
+        n += 1;
+        console.log("Die Funkt aufgerufen");
         let s = { x: 0, y: 0, size: 0, xspeed: 0, yspeed: 0 }; // default-values
         s.x = 675; //Startposition
         s.y = 230;
