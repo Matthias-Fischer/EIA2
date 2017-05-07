@@ -10,18 +10,22 @@ var L4_Canvas;
     let crc2;
     let bienen = [];
     let n = 10;
-    let radius = 10;
+    let xmin = -2.5;
+    let xmax = 1.5;
+    let ymin = -0.5;
+    let ymax = 0.5;
     var imgData = crc2.getImageData(0, 0, 800, 480);
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         for (let i = 0; i < n; i++) {
-            let s = { x: 0, y: 0, size: 0, color: "#0000ff" }; // default-values //
+            let s = { x: 0, y: 0, size: 0, xspeed: 0, yspeed: 0 }; // default-values //
             s.x = 675; //Startposition X
             s.y = 230; //Startposition Y
             s.size = Math.random() * 30 + 10;
-            s.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            s.xspeed = Math.random() * (xmax - xmin) + xmin; //Speed in x-Richtung 
+            s.yspeed = Math.random() * (ymax - ymin) + ymin; //Speed in y-Richtung
             bienen[i] = s;
         }
         var my_gradient = crc2.createLinearGradient(0, 0, 0, 200);
@@ -73,8 +77,8 @@ var L4_Canvas;
         crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
             let s = bienen[i];
-            s.x += Math.random() * 7 - 4;
-            s.y += Math.random() * 8 - 4;
+            s.x += Math.random() * 7 - 4 - s.xspeed;
+            s.y += Math.random() * 8 - 4 - s.yspeed;
             //          drawBiene(s);
             // rechts raus, links rein
             if (s.x > crc2.canvas.width) {
@@ -97,21 +101,30 @@ var L4_Canvas;
         window.setTimeout(animate, 20);
     }
     function drawBiene(_s) {
-        crc2.fillStyle = _s.color;
-        crc2.fillRect(_s.x, _s.y, _s.size, _s.size);
+        //                crc2.fillStyle = _s.color;
+        //                crc2.fillRect(_s.x, _s.y, _s.size, _s.size);
+        var img = document.getElementById("scream");
+        crc2.drawImage(img, _s.x, _s.y, _s.size, _s.size);
     }
     //let s: Biene = { x: 0, y: 0, size: 0};
     //        var img: any = document.getElementById("scream");
-    //        crc2.drawImage(img, s.x, s.y, s.size);
+    //        crc2.drawImage(img, s.x, s.y, s.);
     // Speichert das Canvas Bild  
     function copyPicture() {
         imgData = crc2.getImageData(0, 0, 800, 480);
         crc2.putImageData(imgData, 0, 0);
     }
-    function addBiene() {
-        bienen.push({ x: 675, y: 230, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 30 + 10 });
-        n += 1;
-        console.log("Die Funktion wird aufgerufen");
+    function addBiene(_event) {
+        //        bienen.push({ x: 675, y: 230, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 30 + 10});
+        //        n += 1;
+        //        console.log("Die Funkt aufgerufen");
+        let s = { x: 0, y: 0, size: 0, xspeed: 0, yspeed: 0 }; // default-values
+        s.x = 675; //Startposition
+        s.y = 230;
+        s.size = Math.random() * 20 + 10; //Gr��e
+        s.xspeed = Math.random() * (xmax - xmin) + xmin; //Speed in x-Richtung
+        s.yspeed = Math.random() * (ymax - ymin) + ymin; //Speed in y-Richtung 
+        bienen.push(s);
     }
     // FUNKTIONEN Umwelt
     function drawBerg(_x, _y, _a) {
