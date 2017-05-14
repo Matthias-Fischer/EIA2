@@ -1,3 +1,10 @@
+//Aufgabe: 7 - OO-Blumenwiese
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 14.05.17 
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+
 namespace L7_Classes {
 
     export class Pflanze {
@@ -14,11 +21,11 @@ namespace L7_Classes {
 
         blumeRandomPosition(): void {
 
-            let l: number = Math.floor((Math.random() * 3) + 0);
-            this.y = Math.floor((Math.random() * 200) + 280);
-            this.y = Math.floor((Math.random() * 3) + 0);
+            let m: number = Math.floor((Math.random() * 3) + 0);
+            this.x = Math.floor((Math.random() * 760) + 20);
+            this.y = Math.floor((Math.random() * 150) + 330);
 
-            switch (l) {
+            switch (m) {
                 case 0:
                     this.drawBlume_1();
                     break;
@@ -38,7 +45,7 @@ namespace L7_Classes {
 
             //Blüte
             crc2.beginPath();
-            crc2.fillStyle = "red";
+            crc2.fillStyle = "#B7FF00";
             //crc2.strokeStyle = _strokeColor;
             for (var i: number = 0; i < 8; i++) {
                 crc2.ellipse(this.x + 1.2, this.y - 30, 4, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
@@ -47,7 +54,7 @@ namespace L7_Classes {
             crc2.fill();
             //Blumen Inneres
             crc2.beginPath();
-            crc2.fillStyle = "#FF0040";
+            crc2.fillStyle = "#E8970C";
             crc2.arc(this.x + 1.2, this.y - 30, 7, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fill();
@@ -56,7 +63,7 @@ namespace L7_Classes {
         drawBlume_2(): void {
             //Blüte
             crc2.beginPath();
-            crc2.fillStyle = "black";
+            crc2.fillStyle = "#FFB59E";
             //crc2.strokeStyle = _strokeColor;
             for (var i: number = 0; i < 8; i++) {
                 crc2.ellipse(this.x + 1.2, this.y - 30, 2, 30, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
@@ -65,7 +72,7 @@ namespace L7_Classes {
             crc2.fill();
             //Blumen Inneres
             crc2.beginPath();
-            crc2.fillStyle = "orange";
+            crc2.fillStyle = "#E8E589";
             crc2.arc(this.x + 1.2, this.y - 30, 7, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fill();
@@ -74,7 +81,7 @@ namespace L7_Classes {
         drawBlume_3(): void {
             //Blüte
             crc2.beginPath();
-            crc2.fillStyle = "#DF5AC3";
+            crc2.fillStyle = "#E89958";
             //crc2.strokeStyle = _strokeColor;
             for (var i: number = 0; i < 8; i++) {
                 crc2.ellipse(this.x + 1.2, this.y - 30, 8, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
@@ -83,7 +90,7 @@ namespace L7_Classes {
             crc2.fill();
             //Blumen Inneres
             crc2.beginPath();
-            crc2.fillStyle = "#DBA901";
+            crc2.fillStyle = "#FFD98B";
             crc2.arc(this.x + 1.2, this.y - 30, 7, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fill();

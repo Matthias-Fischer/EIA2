@@ -1,15 +1,14 @@
-//Aufgabe: 6 - Bienenschwarm
+//Aufgabe: 7 - OO-Blumenwiese
 //Name: Matthias Fischer
 //Matrikel: 255035
-//Datum: 07.05.17 
-//Code in Zusammenarbeit mit Mario Sommer erstellt
+//Datum: 14.05.17 
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L7_Classes;
 (function (L7_Classes) {
     window.addEventListener("load", init);
     let bienen = [];
     let pflanzen = [];
-    let n = 10;
+    let n = 10; //Anzahl der Bienen
     let numberFlowers = Math.floor((Math.random() * 10) + 8);
     let p = 6; //Anzahl feste Blumen
     let imgData;
@@ -42,25 +41,26 @@ var L7_Classes;
         drawSonne("#FFBF00", "#F4FA58");
         drawWolke("white", "white");
         drawBienenkorb();
-        drawBear();
+        //drawBear();
         drawAst();
-        // Feste Blumen im Hintergrund ohne Array
+        // Hintergrund-Blumen
         for (let i = 0; i < numberFlowers; i++) {
-            let t = new L7_Classes.Pflanze(0, 0);
-            t.blumeRandomPosition();
+            let h = new L7_Classes.Pflanze(0, 0);
+            h.blumeRandomPosition();
         }
         console.log(pflanzen);
         imgData = L7_Classes.crc2.getImageData(0, 0, 800, 480);
-        //Blumen erstellen + (Array)
+        //Blumen, die sp�ter von den bienen angeflogen werden k�nnen
+        //Array
         for (let i = 0; i < p; i++) {
             let x = Math.floor((Math.random() * 760) + 20); //Breite Wiese (20px links/rechts frei damit keine Bl�te abgeschnitten wird)
-            let y = Math.floor((Math.random() * 80) + 400); //H�he Wiese
+            let y = Math.floor((Math.random() * 150) + 330); //H�he Wiese
             let f = new L7_Classes.Pflanze(x, y);
             pflanzen[i] = f;
         }
-        //Bienen erstellen + (Array)
+        //Bienen erstellen
         for (let i = 0; i < n; i++) {
-            let s = new L7_Classes.Biene(675, 230);
+            let s = new L7_Classes.Biene(690, 240);
             bienen[i] = s;
         }
         window.setTimeout(animate, 20);
@@ -79,7 +79,7 @@ var L7_Classes;
         window.setTimeout(animate, 20);
     }
     function addBiene(_event) {
-        let s = new L7_Classes.Biene(675, 230);
+        let s = new L7_Classes.Biene(690, 240);
         bienen.push(s);
     }
     // FUNKTIONEN Umwelt
@@ -266,10 +266,10 @@ var L7_Classes;
         var img = document.getElementById("korb");
         L7_Classes.crc2.drawImage(img, 650, 182);
     }
-    function drawBear() {
-        var img = document.getElementById("Bear");
-        L7_Classes.crc2.drawImage(img, 450, 150);
-    }
+    //    function drawBear() {
+    //        var img = document.getElementById("Bear");
+    //        crc2.drawImage(img, 450, 150);
+    //    }
     function drawAst() {
         var img = document.getElementById("ast");
         L7_Classes.crc2.drawImage(img, 610, 150);

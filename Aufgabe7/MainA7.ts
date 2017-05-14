@@ -1,8 +1,7 @@
-//Aufgabe: 6 - Bienenschwarm
+//Aufgabe: 7 - OO-Blumenwiese
 //Name: Matthias Fischer
 //Matrikel: 255035
-//Datum: 07.05.17 
-//Code in Zusammenarbeit mit Mario Sommer erstellt
+//Datum: 14.05.17 
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 
@@ -15,7 +14,7 @@ namespace L7_Classes {
     
     let bienen: Biene[] = [];
     let pflanzen: Pflanze[] = [];
-    let n: number = 10;
+    let n: number = 10; //Anzahl der Bienen
     let numberFlowers: number = Math.floor((Math.random() * 10) + 8);
     let p: number = 6; //Anzahl feste Blumen
     let imgData: ImageData;
@@ -60,34 +59,35 @@ namespace L7_Classes {
         drawSonne("#FFBF00", "#F4FA58");
         drawWolke("white", "white");
         drawBienenkorb();
-        drawBear();
+        //drawBear();
         drawAst();
 
 
 
 
-        // Feste Blumen im Hintergrund ohne Array
+        // Hintergrund-Blumen
         for (let i: number = 0; i < numberFlowers; i++) {
-            let t: Pflanze = new Pflanze(0, 0);
-            t.blumeRandomPosition();
+            let h: Pflanze = new Pflanze(0, 0);
+            h.blumeRandomPosition();
         }
         console.log(pflanzen);
 
         imgData = crc2.getImageData(0, 0, 800, 480);
 
 
-        //Blumen erstellen + (Array)
+        //Blumen, die später von den bienen angeflogen werden können
+        //Array
         for (let i: number = 0; i < p; i++) {
             let x: number = Math.floor((Math.random() * 760) + 20); //Breite Wiese (20px links/rechts frei damit keine Blüte abgeschnitten wird)
-            let y: number = Math.floor((Math.random() * 80) + 400); //Höhe Wiese
+            let y: number = Math.floor((Math.random() * 150) + 330); //Höhe Wiese
             let f: Pflanze = new Pflanze(x, y);
             pflanzen[i] = f;
         }
 
 
-        //Bienen erstellen + (Array)
+        //Bienen erstellen
         for (let i: number = 0; i < n; i++) {
-            let s: Biene = new Biene(675, 230);
+            let s: Biene = new Biene(690, 240);
             bienen[i] = s;
         }
 
@@ -127,7 +127,7 @@ namespace L7_Classes {
 
     function addBiene(_event: Event): void {
 
-        let s: Biene = new Biene(675, 230);
+        let s: Biene = new Biene(690, 240);
         bienen.push(s);
 
     }
@@ -332,10 +332,10 @@ namespace L7_Classes {
         crc2.drawImage(img, 650, 182);
     }
 
-    function drawBear() {
-        var img = document.getElementById("Bear");
-        crc2.drawImage(img, 450, 150);
-    }
+//    function drawBear() {
+//        var img = document.getElementById("Bear");
+//        crc2.drawImage(img, 450, 150);
+//    }
 
 
     function drawAst() {

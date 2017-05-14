@@ -1,3 +1,10 @@
+//Aufgabe: 7 - OO-Blumenwiese
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 14.05.17 
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+
 namespace L7_Classes {
 
     export class Biene {
@@ -34,8 +41,8 @@ namespace L7_Classes {
 
         move(): void {
             
-            this.x += Math.random() * 7 - 4 - this.xspeed;
-            this.y += Math.random() * 8 - 4 - this.yspeed;
+            this.x += Math.random() * 2 - 2 - this.xspeed;
+            this.y += Math.random() * 2 - 1 - this.yspeed;
 
             // rechts raus, links rein
             if (this.x > crc2.canvas.width) {

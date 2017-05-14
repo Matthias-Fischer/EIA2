@@ -1,3 +1,8 @@
+//Aufgabe: 7 - OO-Blumenwiese
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 14.05.17 
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L7_Classes;
 (function (L7_Classes) {
     class Pflanze {
@@ -6,10 +11,10 @@ var L7_Classes;
             this.y = _y;
         }
         blumeRandomPosition() {
-            let l = Math.floor((Math.random() * 3) + 0);
-            this.y = Math.floor((Math.random() * 200) + 280);
-            this.y = Math.floor((Math.random() * 3) + 0);
-            switch (l) {
+            let m = Math.floor((Math.random() * 3) + 0);
+            this.x = Math.floor((Math.random() * 760) + 20);
+            this.y = Math.floor((Math.random() * 150) + 330);
+            switch (m) {
                 case 0:
                     this.drawBlume_1();
                     break;
@@ -26,7 +31,7 @@ var L7_Classes;
         drawBlume_1() {
             //Bl�te
             L7_Classes.crc2.beginPath();
-            L7_Classes.crc2.fillStyle = "red";
+            L7_Classes.crc2.fillStyle = "#B7FF00";
             //crc2.strokeStyle = _strokeColor;
             for (var i = 0; i < 8; i++) {
                 L7_Classes.crc2.ellipse(this.x + 1.2, this.y - 30, 4, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
@@ -35,7 +40,7 @@ var L7_Classes;
             L7_Classes.crc2.fill();
             //Blumen Inneres
             L7_Classes.crc2.beginPath();
-            L7_Classes.crc2.fillStyle = "#FF0040";
+            L7_Classes.crc2.fillStyle = "#E8970C";
             L7_Classes.crc2.arc(this.x + 1.2, this.y - 30, 7, 0, 2 * Math.PI);
             L7_Classes.crc2.closePath();
             L7_Classes.crc2.fill();
@@ -43,7 +48,7 @@ var L7_Classes;
         drawBlume_2() {
             //Bl�te
             L7_Classes.crc2.beginPath();
-            L7_Classes.crc2.fillStyle = "black";
+            L7_Classes.crc2.fillStyle = "#FFB59E";
             //crc2.strokeStyle = _strokeColor;
             for (var i = 0; i < 8; i++) {
                 L7_Classes.crc2.ellipse(this.x + 1.2, this.y - 30, 2, 30, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
@@ -52,7 +57,7 @@ var L7_Classes;
             L7_Classes.crc2.fill();
             //Blumen Inneres
             L7_Classes.crc2.beginPath();
-            L7_Classes.crc2.fillStyle = "orange";
+            L7_Classes.crc2.fillStyle = "#E8E589";
             L7_Classes.crc2.arc(this.x + 1.2, this.y - 30, 7, 0, 2 * Math.PI);
             L7_Classes.crc2.closePath();
             L7_Classes.crc2.fill();
@@ -60,7 +65,7 @@ var L7_Classes;
         drawBlume_3() {
             //Bl�te
             L7_Classes.crc2.beginPath();
-            L7_Classes.crc2.fillStyle = "#DF5AC3";
+            L7_Classes.crc2.fillStyle = "#E89958";
             //crc2.strokeStyle = _strokeColor;
             for (var i = 0; i < 8; i++) {
                 L7_Classes.crc2.ellipse(this.x + 1.2, this.y - 30, 8, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
@@ -69,7 +74,7 @@ var L7_Classes;
             L7_Classes.crc2.fill();
             //Blumen Inneres
             L7_Classes.crc2.beginPath();
-            L7_Classes.crc2.fillStyle = "#DBA901";
+            L7_Classes.crc2.fillStyle = "#FFD98B";
             L7_Classes.crc2.arc(this.x + 1.2, this.y - 30, 7, 0, 2 * Math.PI);
             L7_Classes.crc2.closePath();
             L7_Classes.crc2.fill();

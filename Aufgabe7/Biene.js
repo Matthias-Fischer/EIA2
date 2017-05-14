@@ -1,3 +1,8 @@
+//Aufgabe: 7 - OO-Blumenwiese
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 14.05.17 
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L7_Classes;
 (function (L7_Classes) {
     class Biene {
@@ -21,8 +26,8 @@ var L7_Classes;
             L7_Classes.crc2.drawImage(img, this.x, this.y, this.size, this.size);
         }
         move() {
-            this.x += Math.random() * 7 - 4 - this.xspeed;
-            this.y += Math.random() * 8 - 4 - this.yspeed;
+            this.x += Math.random() * 2 - 2 - this.xspeed;
+            this.y += Math.random() * 2 - 1 - this.yspeed;
             // rechts raus, links rein
             if (this.x > L7_Classes.crc2.canvas.width) {
                 this.x = 0;
