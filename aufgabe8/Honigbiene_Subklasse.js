@@ -4,18 +4,13 @@ var L8_Classes;
         constructor(_x, _y) {
             super(_x, _y);
             this.speed = 0.02;
-            this.setStartPosition();
             this.setRandomTargetPosition();
         }
-        //getting the coordinates of a random special flower (target)
+        // Koordinaten der Ziel-Blume
         setRandomTargetPosition() {
             let randomtargetflower = Math.round(Math.random() * (L8_Classes.pflanzen.length - 1));
             this.xTarget = L8_Classes.pflanzen[randomtargetflower].x;
             this.yTarget = L8_Classes.pflanzen[randomtargetflower].y;
-        }
-        setStartPosition() {
-            this.x = 690;
-            this.y = 240;
         }
         move() {
             let xDiff = this.xTarget - this.x;
