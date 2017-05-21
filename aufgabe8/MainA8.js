@@ -1,7 +1,7 @@
-//Aufgabe: 8 - OO-Blumenwiese
+//Aufgabe: 8 - Vererbung
 //Name: Matthias Fischer
 //Matrikel: 255035
-//Datum: 14.05.17 
+//Datum: 21.05.17 
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L8_Classes;
 (function (L8_Classes) {
@@ -41,20 +41,7 @@ var L8_Classes;
         drawSonne("#FFBF00", "#F4FA58");
         drawWolke("white", "white");
         drawBienenkorb();
-        //drawBear();
         drawAst();
-        //        // Hintergrund-Blumen
-        //        for (let i: number = 0; i < numberFlowers; i++) {
-        //            for (let i: number = 0; i < numberFlowers; i++) {
-        //                let h: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
-        //                let s: Pflanze_Superklasse = new Blume2_Subklasse(0, 0);
-        //                let g: Pflanze_Superklasse = new Blume3_Subklasse(0, 0);
-        //
-        ////                h.setRandomPosition();
-        ////                s.setRandomPosition();
-        ////                g.setRandomPosition();
-        //            }
-        //        }
         for (let i = 0; i < numberFlowers; i++) {
             switch (Math.floor((Math.random() * 3) + 0)) {
                 case 0:
@@ -72,18 +59,7 @@ var L8_Classes;
             console.log("hallo");
         }
         imgData = L8_Classes.crc2.getImageData(0, 0, 800, 480);
-        //Blumen, die sp�ter von den bienen angeflogen werden k�nnen
-        //Array
-        //                for (let i: number = 0; i < p; i++) {
-        //                    let s: Pflanze_Superklasse = new Blume1_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-        //                    let f: Pflanze_Superklasse = new Blume2_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-        //                    let g: Pflanze_Superklasse = new Blume3_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-        //                    pflanzen.push(s);
-        //                    pflanzen.push(f);
-        //                    pflanzen.push(g);
-        //                    console.log(pflanzen);
-        //                }
-        //
+        //Ziel-Blumen
         for (let i = 0; i < 6; i++) {
             let f = new L8_Classes.Blume1_Subklasse(0, 0);
             L8_Classes.pflanzen.push(f);
@@ -114,6 +90,7 @@ var L8_Classes;
         window.setTimeout(animate, 20);
     }
     function addBiene(_event) {
+        // Jede zweite Biene soll eine Honigbiene sein
         if (n % 2 == 1) {
             let s = new L8_Classes.NormaleBiene(690, 240);
             bienen.push(s);

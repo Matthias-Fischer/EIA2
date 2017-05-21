@@ -1,7 +1,7 @@
-//Aufgabe: 8 - OO-Blumenwiese
+//Aufgabe: 8 - Vererbung
 //Name: Matthias Fischer
 //Matrikel: 255035
-//Datum: 14.05.17 
+//Datum: 21.05.17 
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 
@@ -11,7 +11,7 @@ namespace L8_Classes {
     window.addEventListener("load", init);
 
     export let crc2: CanvasRenderingContext2D;
-    
+
 
     let bienen: Biene_Superklasse[] = [];
     let n: number = 5; //Anzahl der Bienen
@@ -63,70 +63,39 @@ namespace L8_Classes {
         drawSonne("#FFBF00", "#F4FA58");
         drawWolke("white", "white");
         drawBienenkorb();
-        //drawBear();
         drawAst();
 
 
 
+        for (let i: number = 0; i < numberFlowers; i++) {
 
-//        // Hintergrund-Blumen
-//        for (let i: number = 0; i < numberFlowers; i++) {
-//            for (let i: number = 0; i < numberFlowers; i++) {
-//                let h: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
-//                let s: Pflanze_Superklasse = new Blume2_Subklasse(0, 0);
-//                let g: Pflanze_Superklasse = new Blume3_Subklasse(0, 0);
-//
-////                h.setRandomPosition();
-////                s.setRandomPosition();
-////                g.setRandomPosition();
-//            }
-//        }
-
-
-
-
-                for (let i: number = 0; i < numberFlowers; i++) {
-        
-                    switch (Math.floor((Math.random() * 3) + 0)) {
-                        case 0:
-                            new Blume1_Subklasse(0, 0);
-                           break;
-                        case 1:
-                            new Blume2_Subklasse(0, 0);
-                            break;
-                        case 2:
-                            new Blume3_Subklasse(0, 0);
-                            break;
-                        default:
-                            break;
-                    }
-                    console.log("hallo");
-                }
+            switch (Math.floor((Math.random() * 3) + 0)) {
+                case 0:
+                    new Blume1_Subklasse(0, 0);
+                    break;
+                case 1:
+                    new Blume2_Subklasse(0, 0);
+                    break;
+                case 2:
+                    new Blume3_Subklasse(0, 0);
+                    break;
+                default:
+                    break;
+            }
+            console.log("hallo");
+        }
 
 
         imgData = crc2.getImageData(0, 0, 800, 480);
 
 
-        //Blumen, die später von den bienen angeflogen werden können
-        //Array
-//                for (let i: number = 0; i < p; i++) {
-//                    let s: Pflanze_Superklasse = new Blume1_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-//                    let f: Pflanze_Superklasse = new Blume2_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-//                    let g: Pflanze_Superklasse = new Blume3_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-//                    pflanzen.push(s);
-//                    pflanzen.push(f);
-//                    pflanzen.push(g);
-//                    console.log(pflanzen);
-//                }
-
-//
+        //Ziel-Blumen
+        
         for (let i: number = 0; i < 6; i++) {
             let f: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
             pflanzen.push(f);
         }
         console.log(pflanzen);
-
-
 
 
         //Bienen erstellen --> Normale Bienen
@@ -173,28 +142,30 @@ namespace L8_Classes {
     }
 
 
-    
-    
-    
-    
+
+
+
+
     function addBiene(_event: Event): void {
 
+        // Jede zweite Biene soll eine Honigbiene sein
+        
         if (n % 2 == 1) {
-        
-        let s: Biene_Superklasse = new NormaleBiene(690, 240);
-        bienen.push(s); 
-        n++; //Anzahl der Bienen
-        console.log("Ich fliege nur durch die Gegend");
+
+            let s: Biene_Superklasse = new NormaleBiene(690, 240);
+            bienen.push(s);
+            n++; //Anzahl der Bienen
+            console.log("Ich fliege nur durch die Gegend");
         }
-        
+
         else {
 
-        let h: Biene_Superklasse = new Honigbiene_Subklasse(690, 240);
-        bienen.push(h); 
-        n++;
-        console.log("Ich bin eine Honigbiene");
+            let h: Biene_Superklasse = new Honigbiene_Subklasse(690, 240);
+            bienen.push(h);
+            n++;
+            console.log("Ich bin eine Honigbiene");
         }
-        
+
         console.log(bienen);
 
     }

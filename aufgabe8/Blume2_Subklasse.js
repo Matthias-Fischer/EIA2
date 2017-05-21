@@ -1,3 +1,8 @@
+//Aufgabe: 8 - Vererbung
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 21.05.17 
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L8_Classes;
 (function (L8_Classes) {
     class Blume2_Subklasse extends L8_Classes.Pflanze_Superklasse {

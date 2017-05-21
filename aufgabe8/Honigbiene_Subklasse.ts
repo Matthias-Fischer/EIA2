@@ -1,3 +1,9 @@
+//Aufgabe: 8 - Vererbung
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 21.05.17 
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
 namespace L8_Classes {
 
     export class Honigbiene_Subklasse extends Biene_Superklasse {
@@ -11,7 +17,7 @@ namespace L8_Classes {
 
         constructor(_x: number, _y: number) {
             super(_x, _y);
-            this.speed = 0.02;
+            this.speed = 0.009;
             this.setRandomTargetPosition();
         }
         
@@ -27,8 +33,8 @@ namespace L8_Classes {
 
         
         move(): void {
-            let xDiff: number = this.xTarget - this.x;
-            let yDiff: number = this.yTarget - this.y;
+            let xDiff: number = this.xTarget - this.x - 15;
+            let yDiff: number = this.yTarget - this.y - 40;
             if (Math.abs(xDiff) < 0.5 && Math.abs(yDiff) < 0.5)
                 this.setRandomTargetPosition();
             else {
