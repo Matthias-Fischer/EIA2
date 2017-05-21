@@ -3,6 +3,7 @@ var L8_Classes;
     class Blume2_Subklasse extends L8_Classes.Pflanze_Superklasse {
         constructor(_x, _y) {
             super(_x, _y);
+            this.draw();
         }
         draw() {
             //Bl�te

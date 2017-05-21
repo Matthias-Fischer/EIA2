@@ -11,9 +11,10 @@ namespace L8_Classes {
     window.addEventListener("load", init);
 
     export let crc2: CanvasRenderingContext2D;
+    
 
     let bienen: Biene_Superklasse[] = [];
-    let n: number = 10; //Anzahl der Bienen
+    let n: number = 5; //Anzahl der Bienen
 
     export let pflanzen: Pflanze_Superklasse[] = [];
     let p: number = 6; //Anzahl feste Blumen
@@ -172,13 +173,29 @@ namespace L8_Classes {
     }
 
 
+    
+    
+    
+    
     function addBiene(_event: Event): void {
 
+        if (n % 2 == 1) {
+        
         let s: Biene_Superklasse = new NormaleBiene(690, 240);
-        bienen.push(s);
+        bienen.push(s); 
+        n++; //Anzahl der Bienen
+        console.log("Ich fliege nur durch die Gegend");
+        }
+        
+        else {
 
-        let n: Biene_Superklasse = new Honigbiene_Subklasse(690, 240);
-        bienen.push(n);
+        let h: Biene_Superklasse = new Honigbiene_Subklasse(690, 240);
+        bienen.push(h); 
+        n++;
+        console.log("Ich bin eine Honigbiene");
+        }
+        
+        console.log(bienen);
 
     }
 

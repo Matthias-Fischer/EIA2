@@ -7,7 +7,7 @@ var L8_Classes;
 (function (L8_Classes) {
     window.addEventListener("load", init);
     let bienen = [];
-    let n = 10; //Anzahl der Bienen
+    let n = 5; //Anzahl der Bienen
     L8_Classes.pflanzen = [];
     let p = 6; //Anzahl feste Blumen
     let numberFlowers = Math.floor((Math.random() * 10) + 8);
@@ -114,10 +114,19 @@ var L8_Classes;
         window.setTimeout(animate, 20);
     }
     function addBiene(_event) {
-        let s = new L8_Classes.NormaleBiene(690, 240);
-        bienen.push(s);
-        let n = new L8_Classes.Honigbiene_Subklasse(690, 240);
-        bienen.push(n);
+        if (n % 2 == 1) {
+            let s = new L8_Classes.NormaleBiene(690, 240);
+            bienen.push(s);
+            n++; //Anzahl der Bienen
+            console.log("Ich fliege nur durch die Gegend");
+        }
+        else {
+            let h = new L8_Classes.Honigbiene_Subklasse(690, 240);
+            bienen.push(h);
+            n++;
+            console.log("Ich bin eine Honigbiene");
+        }
+        console.log(bienen);
     }
     // FUNKTIONEN Umwelt
     function drawBerg(_x, _y, _a) {
