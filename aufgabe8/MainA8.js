@@ -6,7 +6,7 @@
 var L8_Classes;
 (function (L8_Classes) {
     window.addEventListener("load", init);
-    L8_Classes.bienen = [];
+    let bienen = [];
     let n = 10; //Anzahl der Bienen
     L8_Classes.pflanzen = [];
     let p = 6; //Anzahl feste Blumen
@@ -43,57 +43,61 @@ var L8_Classes;
         drawBienenkorb();
         //drawBear();
         drawAst();
-        // Hintergrund-Blumen
+        //        // Hintergrund-Blumen
+        //        for (let i: number = 0; i < numberFlowers; i++) {
+        //            for (let i: number = 0; i < numberFlowers; i++) {
+        //                let h: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
+        //                let s: Pflanze_Superklasse = new Blume2_Subklasse(0, 0);
+        //                let g: Pflanze_Superklasse = new Blume3_Subklasse(0, 0);
+        //
+        ////                h.setRandomPosition();
+        ////                s.setRandomPosition();
+        ////                g.setRandomPosition();
+        //            }
+        //        }
         for (let i = 0; i < numberFlowers; i++) {
-            for (let i = 0; i < numberFlowers; i++) {
-                let h = new L8_Classes.Blume1_Subklasse(0, 0);
-                let s = new L8_Classes.Blume2_Subklasse(0, 0);
-                let g = new L8_Classes.Blume3_Subklasse(0, 0);
+            switch (Math.floor((Math.random() * 3) + 0)) {
+                case 0:
+                    new L8_Classes.Blume1_Subklasse(0, 0);
+                    break;
+                case 1:
+                    new L8_Classes.Blume2_Subklasse(0, 0);
+                    break;
+                case 2:
+                    new L8_Classes.Blume3_Subklasse(0, 0);
+                    break;
+                default:
+                    break;
             }
+            console.log("hallo");
         }
-        //                for (let i: number = 0; i < numberFlowers; i++) {
-        //        
-        //                    switch (Math.floor((Math.random() * 3) + 0)) {
-        //                        case 0:
-        //                            new Blume1_Subklasse(0, 0);
-        //                           break;
-        //                        case 1:
-        //                            new Blume2_Subklasse(0, 0);
-        //                            break;
-        //                        case 2:
-        //                            new Blume3_Subklasse(0, 0);
-        //                            break;
-        //                        default:
-        //                            break;
-        //                    }
-        //                }
         imgData = L8_Classes.crc2.getImageData(0, 0, 800, 480);
         //Blumen, die sp�ter von den bienen angeflogen werden k�nnen
         //Array
-        for (let i = 0; i < p; i++) {
-            let s = new L8_Classes.Blume1_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-            let f = new L8_Classes.Blume2_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-            let g = new L8_Classes.Blume3_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-            L8_Classes.pflanzen.push(s);
-            L8_Classes.pflanzen.push(f);
-            L8_Classes.pflanzen.push(g);
-            console.log(L8_Classes.pflanzen);
-        }
+        //                for (let i: number = 0; i < p; i++) {
+        //                    let s: Pflanze_Superklasse = new Blume1_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
+        //                    let f: Pflanze_Superklasse = new Blume2_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
+        //                    let g: Pflanze_Superklasse = new Blume3_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
+        //                    pflanzen.push(s);
+        //                    pflanzen.push(f);
+        //                    pflanzen.push(g);
+        //                    console.log(pflanzen);
+        //                }
         //
-        //        for (let i: number = 0; i < 6; i++) {
-        //            let f: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
-        //            pflanzen.push(f);
-        //        }
-        //        console.log(pflanzen);
+        for (let i = 0; i < 6; i++) {
+            let f = new L8_Classes.Blume1_Subklasse(0, 0);
+            L8_Classes.pflanzen.push(f);
+        }
+        console.log(L8_Classes.pflanzen);
         //Bienen erstellen --> Normale Bienen
         for (let i = 0; i < n; i++) {
             let b = new L8_Classes.NormaleBiene(690, 240);
             let c = new L8_Classes.Honigbiene_Subklasse(690, 240);
-            L8_Classes.bienen.push(b);
-            L8_Classes.bienen.push(c);
+            bienen.push(b);
+            bienen.push(c);
         }
         window.setTimeout(animate, 20);
-        console.log(L8_Classes.bienen);
+        console.log(bienen);
         canvas.addEventListener("click", addBiene);
     } // Ende der Init-Funktion
     function animate(_width, _height) {
@@ -103,17 +107,17 @@ var L8_Classes;
             let s = L8_Classes.pflanzen[i];
             s.draw();
         }
-        for (let i = 0; i < L8_Classes.bienen.length; i++) {
-            let s = L8_Classes.bienen[i];
+        for (let i = 0; i < bienen.length; i++) {
+            let s = bienen[i];
             s.update();
         }
         window.setTimeout(animate, 20);
     }
     function addBiene(_event) {
-        let s = new L8_Classes.Biene_Superklasse(690, 240);
-        L8_Classes.bienen.push(s);
-        let n = new L8_Classes.Biene_Superklasse(690, 240);
-        L8_Classes.bienen.push(n);
+        let s = new L8_Classes.NormaleBiene(690, 240);
+        bienen.push(s);
+        let n = new L8_Classes.Honigbiene_Subklasse(690, 240);
+        bienen.push(n);
     }
     // FUNKTIONEN Umwelt
     function drawBerg(_x, _y, _a) {

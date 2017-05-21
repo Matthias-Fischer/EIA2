@@ -12,7 +12,7 @@ namespace L8_Classes {
 
     export let crc2: CanvasRenderingContext2D;
 
-    export let bienen: Biene_Superklasse[] = [];
+    let bienen: Biene_Superklasse[] = [];
     let n: number = 10; //Anzahl der Bienen
 
     export let pflanzen: Pflanze_Superklasse[] = [];
@@ -68,38 +68,39 @@ namespace L8_Classes {
 
 
 
-        // Hintergrund-Blumen
-        for (let i: number = 0; i < numberFlowers; i++) {
-            for (let i: number = 0; i < numberFlowers; i++) {
-                let h: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
-                let s: Pflanze_Superklasse = new Blume2_Subklasse(0, 0);
-                let g: Pflanze_Superklasse = new Blume3_Subklasse(0, 0);
-
-//                h.setRandomPosition();
-//                s.setRandomPosition();
-//                g.setRandomPosition();
-            }
-        }
-
-
+//        // Hintergrund-Blumen
+//        for (let i: number = 0; i < numberFlowers; i++) {
+//            for (let i: number = 0; i < numberFlowers; i++) {
+//                let h: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
+//                let s: Pflanze_Superklasse = new Blume2_Subklasse(0, 0);
+//                let g: Pflanze_Superklasse = new Blume3_Subklasse(0, 0);
+//
+////                h.setRandomPosition();
+////                s.setRandomPosition();
+////                g.setRandomPosition();
+//            }
+//        }
 
 
-//                for (let i: number = 0; i < numberFlowers; i++) {
-//        
-//                    switch (Math.floor((Math.random() * 3) + 0)) {
-//                        case 0:
-//                            new Blume1_Subklasse(0, 0);
-//                           break;
-//                        case 1:
-//                            new Blume2_Subklasse(0, 0);
-//                            break;
-//                        case 2:
-//                            new Blume3_Subklasse(0, 0);
-//                            break;
-//                        default:
-//                            break;
-//                    }
-//                }
+
+
+                for (let i: number = 0; i < numberFlowers; i++) {
+        
+                    switch (Math.floor((Math.random() * 3) + 0)) {
+                        case 0:
+                            new Blume1_Subklasse(0, 0);
+                           break;
+                        case 1:
+                            new Blume2_Subklasse(0, 0);
+                            break;
+                        case 2:
+                            new Blume3_Subklasse(0, 0);
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log("hallo");
+                }
 
 
         imgData = crc2.getImageData(0, 0, 800, 480);
@@ -107,22 +108,22 @@ namespace L8_Classes {
 
         //Blumen, die später von den bienen angeflogen werden können
         //Array
-                for (let i: number = 0; i < p; i++) {
-                    let s: Pflanze_Superklasse = new Blume1_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-                    let f: Pflanze_Superklasse = new Blume2_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-                    let g: Pflanze_Superklasse = new Blume3_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
-                    pflanzen.push(s);
-                    pflanzen.push(f);
-                    pflanzen.push(g);
-                    console.log(pflanzen);
-                }
+//                for (let i: number = 0; i < p; i++) {
+//                    let s: Pflanze_Superklasse = new Blume1_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
+//                    let f: Pflanze_Superklasse = new Blume2_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
+//                    let g: Pflanze_Superklasse = new Blume3_Subklasse(Math.floor((Math.random() * 760) + 20), Math.floor((Math.random() * 150) + 330));
+//                    pflanzen.push(s);
+//                    pflanzen.push(f);
+//                    pflanzen.push(g);
+//                    console.log(pflanzen);
+//                }
 
 //
-//        for (let i: number = 0; i < 6; i++) {
-//            let f: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
-//            pflanzen.push(f);
-//        }
-//        console.log(pflanzen);
+        for (let i: number = 0; i < 6; i++) {
+            let f: Pflanze_Superklasse = new Blume1_Subklasse(0, 0);
+            pflanzen.push(f);
+        }
+        console.log(pflanzen);
 
 
 
@@ -173,10 +174,10 @@ namespace L8_Classes {
 
     function addBiene(_event: Event): void {
 
-        let s: Biene_Superklasse = new Biene_Superklasse(690, 240);
+        let s: Biene_Superklasse = new NormaleBiene(690, 240);
         bienen.push(s);
 
-        let n: Biene_Superklasse = new Biene_Superklasse(690, 240);
+        let n: Biene_Superklasse = new Honigbiene_Subklasse(690, 240);
         bienen.push(n);
 
     }

@@ -6,8 +6,6 @@
 var L8_Classes;
 (function (L8_Classes) {
     class Biene_Superklasse {
-        //        targetx: number;
-        //        targety: number;
         constructor(_x, _y) {
             this.xmin = -2.5;
             this.xmax = 1.5;

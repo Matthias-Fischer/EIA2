@@ -20,8 +20,6 @@ namespace L8_Classes {
         ymin: number = -0.5;
         ymax: number = 0.5;
 
-//        targetx: number;
-//        targety: number;
 
 
         constructor(_x: number, _y: number) {
