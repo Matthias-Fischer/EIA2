@@ -31,13 +31,13 @@ legend {
 }
 
 body {
-	background: #FA5882;
+	background: black;
 }
 
 @media screen and (min-width:570px) {
 	
 body {
-	background: #FA5882;
+	background: black;
 }
 	
 #Auswahlbereich {
