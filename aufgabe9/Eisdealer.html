@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Eisdealer</title>
+<link rel="stylesheet" href="Eisdealer.css" type="text/css"
+	media="screen" />
+<script src="Eisdealer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div class ="header">
+<div>
+		<fieldset id="Warenkorb2">
+			<legend> Ihre Auswahl </legend>
+			<p id="Warenliste"></p>
+			<h2>Gesamtsumme:</h2>
+			<p id="Summe"></p>
+			<button name="BestellungAbschicken" type="button"
+				id="BestellungAbschicken">Bestellung abschicken</button>
+		</fieldset>
+	</div>
+</div>
+
+	<!-- -------------------AUSWAHLBEREICH------------------- -->
+
+	<div id="Auswahlbereich">
+		<fieldset id="Eissorten">
+			<legend> Welche Eissorten möchten Sie? (1€/Kugel)</legend>
+		</fieldset>
+
+		<fieldset id="Toppings">
+			<legend> Toppings (0,4€/Topping)</legend>
+		</fieldset>
+
+		<fieldset id="Darreichungsform">
+			<legend> Becher oder Waffel?</legend>
+		</fieldset>
+
+		<fieldset id="Lieferung">
+			<legend>Lieferung</legend>
+		</fieldset>
+
+<div id="bla">
+		<fieldset id="Kundendaten">
+			<legend>Kundendaten</legend>
+			<input type="text" name="Vorname" placeholder="Vorname" required
+				id="Vorname" /> <input type="text" name="Nachname"
+				placeholder="Nachname" required id="Nachname" /> <input type="text"
+				name="Strasse" placeholder="Strasse/Hausnummer" required
+				id="Strasse" /> <input type="text" name="PLZ" pattern="[0-9]{5}"
+				placeholder="Postleitzahl" required id="PLZ" /> <input type="text"
+				name="Ort" placeholder="Ort" required id="Ort" /> <input
+				type="email" name="Mail" placeholder="E-Mail" required id="Mail" />
+			<input type="text" name="Telefon" placeholder="Telefon" id="Telefon" />
+		</fieldset>
+		</div>
+	</div>
+
+	<!-- -------------------WARENKORB------------------- -->
+	
+
+</body>
+</html>
