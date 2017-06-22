@@ -149,7 +149,7 @@ namespace L4_Canvas {
         //        crc2.fillStyle = "#000000";
         //        crc2.fillRect(_x,         
 
-        var img = document.getElementById("scream");
+        var img = <HTMLImageElement>document.getElementById("scream");
         crc2.drawImage(img, _x, _y);
 
 
@@ -381,13 +381,13 @@ namespace L4_Canvas {
 
     // FUNKTIONEN Blumen   
 
-    function drawBlume_1(_x, _y, _strokeColor, _fillColor) {
+    function drawBlume_1(_x: number, _y: number, _strokeColor: string, _fillColor: string) {
         //Blüte
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         for (var i = 0; i < 8; i++) {
-            crc2.ellipse(_x + 1.2, _y - 30, 4, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
+           // crc2.ellipse(_x + 1.2, _y - 30, 4, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
         }
         crc2.closePath();
         crc2.fill();
@@ -399,13 +399,13 @@ namespace L4_Canvas {
         crc2.fill();
     }
 
-    function drawBlume_2(_x, _y, _strokeColor, _fillColor) {
+    function drawBlume_2(_x: number, _y: number, _strokeColor: string, _fillColor: string) {
         //Blüte
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         for (var i = 0; i < 8; i++) {
-            crc2.ellipse(_x + 1.2, _y - 30, 2, 30, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
+           // crc2.ellipse(_x + 1.2, _y - 30, 2, 30, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
         }
         crc2.closePath();
         crc2.fill();
@@ -417,13 +417,13 @@ namespace L4_Canvas {
         crc2.fill();
     }
 
-    function drawBlume_3(_x, _y, _strokeColor, _fillColor) {
+    function drawBlume_3(_x: number, _y: number, _strokeColor: string, _fillColor: string) {
         //Blüte
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         for (var i = 0; i < 8; i++) {
-            crc2.ellipse(_x + 1.2, _y - 30, 8, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
+         //   crc2.ellipse(_x + 1.2, _y - 30, 8, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
         }
         crc2.closePath();
         crc2.fill();
@@ -436,7 +436,7 @@ namespace L4_Canvas {
     }
 
     function drawBienenkorb() {
-        var img = document.getElementById("korb");
+        var img = <HTMLImageElement>document.getElementById("korb");
         crc2.drawImage(img, 650, 182);
         //        crc2.beginPath();
         //        crc2.moveTo(220, 300);
@@ -454,12 +454,12 @@ namespace L4_Canvas {
     }
 
     function drawBear() {
-        var img = document.getElementById("Bear");
+        var img = <HTMLImageElement>document.getElementById("Bear");
         crc2.drawImage(img, 450, 150);
     }
 
     function drawAst() {
-        var img = document.getElementById("ast");
+        var img = <HTMLImageElement>document.getElementById("ast");
         crc2.drawImage(img, 610, 150);
     }
 

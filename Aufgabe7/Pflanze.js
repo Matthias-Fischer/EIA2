@@ -34,7 +34,6 @@ var L7_Classes;
             L7_Classes.crc2.fillStyle = "#B7FF00";
             //crc2.strokeStyle = _strokeColor;
             for (var i = 0; i < 8; i++) {
-                L7_Classes.crc2.ellipse(this.x + 1.2, this.y - 30, 4, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
             }
             L7_Classes.crc2.closePath();
             L7_Classes.crc2.fill();
@@ -51,7 +50,6 @@ var L7_Classes;
             L7_Classes.crc2.fillStyle = "#FFB59E";
             //crc2.strokeStyle = _strokeColor;
             for (var i = 0; i < 8; i++) {
-                L7_Classes.crc2.ellipse(this.x + 1.2, this.y - 30, 2, 30, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
             }
             L7_Classes.crc2.closePath();
             L7_Classes.crc2.fill();
@@ -68,7 +66,6 @@ var L7_Classes;
             L7_Classes.crc2.fillStyle = "#E89958";
             //crc2.strokeStyle = _strokeColor;
             for (var i = 0; i < 8; i++) {
-                L7_Classes.crc2.ellipse(this.x + 1.2, this.y - 30, 8, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
             }
             L7_Classes.crc2.closePath();
             L7_Classes.crc2.fill();

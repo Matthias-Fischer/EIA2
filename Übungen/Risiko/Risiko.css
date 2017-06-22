@@ -1,0 +1,55 @@
+#Rot {
+	margin-left: 33%;
+}
+
+.Div {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	margin: 2em;
+}
+
+h1 {
+	text-align: center;
+	font-size: 3em;
+}
+
+body {
+	background-color: #F6E3CE;
+}
+
+.button {
+  padding: 25px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin: 2em;
+  width: 15%;
+  margin-bottom: 5em;
+}
+
+#Rot {
+	background-color: #FE2E2E;
+}
+
+.button:hover {background-color: #3e8e41}
+
+#Rot:hover {background-color: #DF0101}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+input {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

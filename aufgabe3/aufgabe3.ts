@@ -5,7 +5,7 @@
 //Dieser Code wurde in Zusammenarbeit mit Marcel Riedel erstellt
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
-     window.onload = function (): void {
+    window.onload = function (): void {
         
     let zeile : number = 0 ;    // Deklaration für Zeilen
     let rice : number = 1;      // Deklaration für die Menge an Reiskörnern, die auf einem Feld liegt

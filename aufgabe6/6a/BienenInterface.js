@@ -324,7 +324,6 @@ var L4_Canvas;
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         for (var i = 0; i < 8; i++) {
-            crc2.ellipse(_x + 1.2, _y - 30, 4, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
         }
         crc2.closePath();
         crc2.fill();
@@ -341,7 +340,6 @@ var L4_Canvas;
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         for (var i = 0; i < 8; i++) {
-            crc2.ellipse(_x + 1.2, _y - 30, 2, 30, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
         }
         crc2.closePath();
         crc2.fill();
@@ -358,7 +356,6 @@ var L4_Canvas;
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         for (var i = 0; i < 8; i++) {
-            crc2.ellipse(_x + 1.2, _y - 30, 8, 20, (i * 22.5) * Math.PI / 180, 0, 2 * Math.PI);
         }
         crc2.closePath();
         crc2.fill();

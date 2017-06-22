@@ -328,7 +328,7 @@ namespace L7_Classes {
 
 
     function drawBienenkorb() {
-        var img = document.getElementById("korb");
+        var img = <HTMLImageElement>document.getElementById("korb");
         crc2.drawImage(img, 650, 182);
     }
 
@@ -339,7 +339,7 @@ namespace L7_Classes {
 
 
     function drawAst() {
-        var img = document.getElementById("ast");
+        var img = <HTMLImageElement>document.getElementById("ast");
         crc2.drawImage(img, 610, 150);
     }
 }
