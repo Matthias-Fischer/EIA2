@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>GalaxyKing</title>
+<meta charset="utf-8" />
+<script src="Rocket.js"></script>
+<script src="Main.js"></script>
+<script src="Comet.js"></script>
+<script src="Coin.js"></script>
+<link rel="stylesheet" href="Style.css" type="text/css"/>
+</head>
+<body>
+
+<div class ="container">
+	<div id="overlay">
+		Game over! <br>
+		Your final score: <span id="final_score"></span>	
+		<br>
+		<a onClick = "window.location.reload()" href = "#">Click to play again</a>
+	</div>
+	
+	<canvas width="400" height="600">
+	</canvas>
+	
+	
+	<div id="stats">
+		<div id="score"></div>
+		<div id="ammo"></div>
+		<button onmousedown="playMusic();" id="bla">Play Music</button> 
+	</div>	
+</div>
+
+
+
+</body>

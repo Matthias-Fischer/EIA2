@@ -186,7 +186,7 @@ var ClientServer;
             }
         }
         for (let i = 0; i < inputsDelivery.length; i++) {
-            if (inputsDelivery[0].checked) {
+            if (inputsDelivery[i].checked) {
                 sum += 0;
             }
         }

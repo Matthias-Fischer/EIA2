@@ -10,6 +10,8 @@ namespace L7_Classes {
         gravity: number = 0.8;
         lift: number = -15;
         velocity: number = 0;
+        
+   
 
 
         constructor(_x: number, _y: number) {

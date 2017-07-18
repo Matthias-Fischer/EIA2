@@ -1,5 +1,5 @@
 namespace ClientServer {
-    
+
     window.addEventListener("load", init);
 
 
@@ -45,56 +45,56 @@ namespace ClientServer {
 
 
     function BestellungAbschicken(): void {
-    
+
         let Korrektur: string[] = ["Bitte ueberpruefen/ergaenzen Sie folgende Eingaben: \n"];
-        let Vorname: HTMLInputElement = <HTMLInputElement> document.getElementById("Vorname");
-        let Nachname: HTMLInputElement = <HTMLInputElement> document.getElementById("Nachname");
-        let Strasse: HTMLInputElement = <HTMLInputElement> document.getElementById("Strasse");
-        let PLZ: HTMLInputElement = <HTMLInputElement> document.getElementById("PLZ");
-        let Ort: HTMLInputElement = <HTMLInputElement> document.getElementById("Ort");
-        let Mail: HTMLInputElement = <HTMLInputElement> document.getElementById("Mail");
-        let Telefon: HTMLInputElement = <HTMLInputElement> document.getElementById("Telefon");
-       
-        if(Vorname.validity.valid == false)
+        let Vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("Vorname");
+        let Nachname: HTMLInputElement = <HTMLInputElement>document.getElementById("Nachname");
+        let Strasse: HTMLInputElement = <HTMLInputElement>document.getElementById("Strasse");
+        let PLZ: HTMLInputElement = <HTMLInputElement>document.getElementById("PLZ");
+        let Ort: HTMLInputElement = <HTMLInputElement>document.getElementById("Ort");
+        let Mail: HTMLInputElement = <HTMLInputElement>document.getElementById("Mail");
+        let Telefon: HTMLInputElement = <HTMLInputElement>document.getElementById("Telefon");
+
+        if (Vorname.validity.valid == false)
             Korrektur.push("Vorname \n");
-        if(Nachname.validity.valid == false)
+        if (Nachname.validity.valid == false)
             Korrektur.push("Nachname \n");
-        if(Strasse.validity.valid == false)
+        if (Strasse.validity.valid == false)
             Korrektur.push("Straﬂe \n");
-        if(PLZ.validity.valid == false)
-            Korrektur.push("Postleitzahl \n"); 
-        if(Ort.validity.valid == false)
+        if (PLZ.validity.valid == false)
+            Korrektur.push("Postleitzahl \n");
+        if (Ort.validity.valid == false)
             Korrektur.push("Ort \n");
-        if(Mail.validity.valid == false)
+        if (Mail.validity.valid == false)
             Korrektur.push("Email-Adresse \n");
-        if(Telefon.validity.valid == false)
-            Korrektur.push("Telefonnummer \n"); 
-        
-        
+        if (Telefon.validity.valid == false)
+            Korrektur.push("Telefonnummer \n");
+
+
         let Eiskugeln: number = 0;
         let Darbietung: number = 0;
         let Delivery: number = 0;
         let Toppings: number = 0;
-        
-        
+
+
         //Es wurde keine Eissorte ausgew‰hlt
-        for(let i: number = 0; i < inputsEis.length; i++){
-            if(parseInt(inputsEis[i].value) > 0)
+        for (let i: number = 0; i < inputsEis.length; i++) {
+            if (parseInt(inputsEis[i].value) > 0)
                 Eiskugeln += 1;
-        } 
-        if(Eiskugeln == 0)
+        }
+        if (Eiskugeln == 0)
             Korrektur.push("Sie haben keine Eissorte ausgewhlt \n");
-        
+
 
         //Es wurde keine Darreichungsform ausgew‰hlt
-        for(let i: number = 0; i < inputsDarreichung.length; i++){
-            if(inputsDarreichung[i].checked)
+        for (let i: number = 0; i < inputsDarreichung.length; i++) {
+            if (inputsDarreichung[i].checked)
                 Darbietung += 1;
-        } 
-        if(Darbietung == 0)
+        }
+        if (Darbietung == 0)
             Korrektur.push("Das Eis kann leider nicht in Luft verpackt werden \n");
-        
-        
+
+
         //Es wurde keine Lieferart ausgew‰hlt
         for (let i: number = 0; i < inputsDelivery.length; i++) {
             if (inputsDelivery[i].checked)
@@ -111,21 +111,22 @@ namespace ClientServer {
         }
         if (Toppings == 0)
             Korrektur.push("Wollen Sie wirklich keines unserer leckeren Toppings probieren? \n");
-        
 
 
 
-        if(Korrektur.length > 1){
-            for(let i: number = 0; i < Korrektur.length; i++)
+
+        if (Korrektur.length > 1) {
+            for (let i: number = 0; i < Korrektur.length; i++)
                 Korrektur.push
-                alert(Korrektur.join(""));}
-            else{
+            alert(Korrektur.join(""));
+        }
+        else {
             alert("Vielen Dank f¸r Ihre Bestellung! Diese wird nun bearbeitet!");
             location.reload();
-            }
         }
-    
-        
+    }
+
+
 
     function createAuswahlDerProdukte(): void {
 
@@ -150,7 +151,7 @@ namespace ClientServer {
 
         label.innerText = _sort;
         label.appendChild(input);
-      
+
         input.type = "number";
         input.min = "0";
         input.value = "BLAAAA";
@@ -216,9 +217,9 @@ namespace ClientServer {
 
 
     // Sobald ƒnderungen auftreten, neue Werte summieren
-    
+
     function change(): void {
-        
+
         let sum: number = 0;
         for (let i: number = 0; i < inputsEis.length; i++) {
             sum += parseInt(inputsEis[i].value);
@@ -232,10 +233,11 @@ namespace ClientServer {
             { sum += 0; }
         }
         for (let i: number = 0; i < inputsDelivery.length; i++) {
-            if (inputsDelivery[0].checked)
-            { sum += 0; }
+            if (inputsDelivery[i].checked)
+            { sum += 0;}
         }
         
+      
         changeWarenkorb(sum);
 
     }
@@ -250,28 +252,26 @@ namespace ClientServer {
                 Warenliste.innerText += sorts[i] + " - " + (parseInt(inputsEis[i].value) * 1) + " Euro" + "\n";
             }
         }
-        
+
         for (let i: number = 0; i < inputsToppings.length; i++) {
             if (inputsToppings[i].checked) {
                 Warenliste.innerText += toppings[i] + " - 40 Cent" + "\n";
             }
         }
-        
+
         for (let i: number = 0; i < inputsDarreichung.length; i++) {
-            if(inputsDarreichung[i].checked)
-            {
+            if (inputsDarreichung[i].checked) {
                 Warenliste.innerText += containers[i] + " - Keine Extrakosten" + "\n";
             }
-        } 
-        
+        }
+
         for (let i: number = 0; i < inputsDelivery.length; i++) {
-            if(inputsDelivery[i].checked)
-            {
+            if (inputsDelivery[i].checked) {
                 Warenliste.innerText += delivery[i] + " - Keine Extrakosten" + "\n";
             }
         }
-            
-        
+
+
         let summeHtml: HTMLElement = document.getElementById("Summe");
         summeHtml.innerText = _sum.toString() + " Euro";
     }
