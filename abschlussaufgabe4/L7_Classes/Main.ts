@@ -103,11 +103,11 @@ namespace L7_Classes {
     function hitDetect(): void {
         for (let i: number = 0; i < comets.length; i++) {
             var c: Comet = comets[i];
-            var r: Rocket = rockets[i];
+            var r: Rocket = rockets[0];
             var k: Coin = coins[i];
 
             // Rakete trifft auf Cometen
-            if (r.x + r.w >= c.x && r.x <= c.x + c.w && r.y >= c.y && r.y <= c.y + c.h) {
+            if (r.x + r.w >= c.x && r.x <= c.x + c.w && r.y + 20 >= c.y && r.y <= c.y + c.h) {
                 console.log("HIT");
                 document.getElementById("overlay").style.display = "block";
             }
@@ -116,9 +116,12 @@ namespace L7_Classes {
 
 
         for (let i: number = 0; i < coins.length; i++) {
+            
+            var r: Rocket = rockets[0];
+            var k: Coin = coins[i];
 
             // Rakete trifft auf Coins
-            if (r.x + r.w >= k.x && r.x <= k.x + k.w && r.y >= k.y && r.y <= k.y + k.h) {
+            if (r.x + r.w >= k.x && r.x <= k.x + k.w && r.y + 20 >= k.y && r.y <= k.y + k.h) {
                 console.log("Coin eingesammelt");
                 gameScore = gameScore + 1;
                 ladung = ladung + 1;

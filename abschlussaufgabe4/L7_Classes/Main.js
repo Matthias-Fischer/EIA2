@@ -64,17 +64,19 @@ var L7_Classes;
     function hitDetect() {
         for (let i = 0; i < comets.length; i++) {
             var c = comets[i];
-            var r = rockets[i];
+            var r = rockets[0];
             var k = coins[i];
             // Rakete trifft auf Cometen
-            if (r.x + r.w >= c.x && r.x <= c.x + c.w && r.y >= c.y && r.y <= c.y + c.h) {
+            if (r.x + r.w >= c.x && r.x <= c.x + c.w && r.y + 20 >= c.y && r.y <= c.y + c.h) {
                 console.log("HIT");
                 document.getElementById("overlay").style.display = "block";
             }
         }
         for (let i = 0; i < coins.length; i++) {
+            var r = rockets[0];
+            var k = coins[i];
             // Rakete trifft auf Coins
-            if (r.x + r.w >= k.x && r.x <= k.x + k.w && r.y >= k.y && r.y <= k.y + k.h) {
+            if (r.x + r.w >= k.x && r.x <= k.x + k.w && r.y + 20 >= k.y && r.y <= k.y + k.h) {
                 console.log("Coin eingesammelt");
                 gameScore = gameScore + 1;
                 ladung = ladung + 1;
