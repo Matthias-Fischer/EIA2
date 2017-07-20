@@ -4,7 +4,6 @@ var L7_Classes;
         constructor(_x, _y) {
             this.w = 20;
             this.h = 20;
-            this.state = true;
             //this.setRandomPosition();
             this.x = _x;
             this.y = _y;
@@ -19,20 +18,10 @@ var L7_Classes;
         }
         move() {
             this.x += -2.1;
-            //            
-            //            if (super.gameScore == 100) {
-            //                ;    
-            //            }
             if (this.x < -20) {
                 this.x = 400;
                 this.y = Math.random() * 600;
             }
-        }
-        moveFaster() {
-            this.x += -2.7;
-        }
-        bombExplosion() {
-            this.x = 400;
         }
     }
     L7_Classes.Comet = Comet;

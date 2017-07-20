@@ -7,16 +7,8 @@ namespace L7_Classes {
     let ladung: number = 0;
 
     let l: number = 1;
-    let n: number = 15;
+    let n: number = 5;
     let m: number = 5;
-
-    var state: boolean = true;
-
-let imgData: ImageData;
-
-
-
-
 
     window.addEventListener("load", init);
 
@@ -25,7 +17,6 @@ let imgData: ImageData;
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-        imgData = crc2.getImageData(0, 0, 400, 600);
 
         for (let i: number = 0; i < l; i++) {
             // Rakete erstellen
@@ -46,7 +37,7 @@ let imgData: ImageData;
             let cc: Coin = new Coin(Math.random() * 400, Math.random() * 600);
             coins[i] = cc;
         }
-         
+
         console.log(rockets);
         console.log(comets);
         console.log(coins);
@@ -59,8 +50,6 @@ let imgData: ImageData;
 
 
     function animate(): void {
-
-crc2.putImageData(imgData, 0, 0);
 
         crc2.fillStyle = "SlateGrey";
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -116,7 +105,6 @@ crc2.putImageData(imgData, 0, 0);
             if (r.x + r.w >= c.x && r.x <= c.x + c.w && r.y + 20 >= c.y && r.y <= c.y + c.h) {
                 console.log("HIT");
                 document.getElementById("overlay").style.display = "block";
-                // c.bombExplosion();
                 r.end();
                 play4();
                 play5();
@@ -125,72 +113,72 @@ crc2.putImageData(imgData, 0, 0);
 
         }
 
-//        function play() {
-//            var audio = document.getElementById("audio");
-//            audio.play(); }
+        //        function play() {
+        //            var audio = document.getElementById("audio");
+        //            audio.play(); }
 
-            function play2() {
-                var audio = document.getElementById("audio2");
-                audio.play(); }
-        
-         function play4() {
-                var audio = document.getElementById("audio4");
-                audio.play(); }
-        
-         function play5() {
-                var audio = document.getElementById("audio5");
-                audio.play(); }
+        function play2() {
+            var audio = document.getElementById("audio2");
+            audio.play();
+        }
 
+        function play4() {
+            var audio = document.getElementById("audio4");
+            audio.play();
+        }
 
-                for (let i: number = 0; i < coins.length; i++) {
-
-                    var r: Rocket = rockets[0];
-                    var k: Coin = coins[i];
-                    var c: Comet = comets[i];
-
-                    // Rakete trifft auf Coins
-                    if (r.x + r.w >= k.x - k.radius && r.x <= k.x + k.radius && r.y + 20 >= k.y - k.radius && r.y <= k.y + k.radius) {
-                        k.changePosition();
-                        console.log("Coin eingesammelt");
-                        gameScore = gameScore + 1;
-                        ladung = ladung + 1;
-                        play2();
-
-                        //Wenn 10 Punkte erreicht wurde, erhöht sich die Kometenanzahl um 1
-                        if (gameScore == 10) {
-                            comets.push(c);
-                            console.log(c);
-                            console.log(comets);
-                            console.log("Bombe");
-                            n + 10;
-                            c.bombExplosion();
-                        }
-
-                        if (ladung >= 5) {
-                            document.getElementById("ammo").style.backgroundColor = "red";
-                            document.getElementById("ammo").addEventListener("click", destroyComets);
-                        }
-
-                        document.getElementById("score").textContent = "Score: " + gameScore;
-                        document.getElementById("final_score").textContent = "Score: " + gameScore;
-                        document.getElementById("ammo").textContent = "Munni: " + ladung;
+        function play5() {
+            var audio = document.getElementById("audio5");
+            audio.play();
+        }
 
 
-                        //                if (ladung > 100) {
-                        //                    console.log("Magnetfunktion bereit");
-                        //                    document.addEventListener("click", destroyComets);
-                        //                }
-                    }
+        for (let i: number = 0; i < coins.length; i++) {
+
+            var r: Rocket = rockets[0];
+            var k: Coin = coins[i];
+            var c: Comet = comets[i];
+
+            // Rakete trifft auf Coins
+            if (r.x + r.w >= k.x - k.radius && r.x <= k.x + k.radius && r.y + 20 >= k.y - k.radius && r.y <= k.y + k.radius) {
+                k.changePosition();
+                console.log("Coin eingesammelt");
+                gameScore = gameScore + 1;
+                ladung = ladung + 1;
+                play2();
+
+                //Wenn 10 Punkte erreicht wurde, erhöht sich die Kometenanzahl um 1
+                if (gameScore % 2 == 0) {
+                    comets.push(c);
+                    console.log(comets.length);
+                    n = n + 1;
                 }
 
+                if (ladung >= 5) {
+                    document.getElementById("ammo").style.backgroundColor = "red";
+                    document.getElementById("ammo").addEventListener("click", destroyComets);
+                }
+
+                document.getElementById("score").textContent = "Score: " + gameScore;
+                document.getElementById("final_score").textContent = "Score: " + gameScore;
+                document.getElementById("ammo").textContent = "Munni: " + ladung;
+
+
+                //                if (ladung > 100) {
+                //                    console.log("Magnetfunktion bereit");
+                //                    document.addEventListener("click", destroyComets);
+                //                }
             }
-
-
-            function destroyComets(): void {
-                ladung = 0;
-                console.log("Jetzt");
-                document.getElementById("ammo").style.backgroundColor = "black";
-            }
-
-
         }
+
+    }
+
+
+    function destroyComets(): void {
+        ladung = 0;
+        console.log("Jetzt");
+        document.getElementById("ammo").style.backgroundColor = "black";
+    }
+
+
+}

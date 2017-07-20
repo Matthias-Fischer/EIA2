@@ -5,7 +5,6 @@ namespace L7_Classes {
         y: number;
         w: number = 20;
         h: number = 20;
-        state: boolean = true;
 
 
         constructor(_x: number, _y: number) {
@@ -26,10 +25,6 @@ namespace L7_Classes {
 
         move(): void {
             this.x += -2.1;
-            //            
-            //            if (super.gameScore == 100) {
-            //                ;    
-            //            }
             
             if (this.x < -20) {
                 this.x = 400;
@@ -38,15 +33,9 @@ namespace L7_Classes {
 
         }
 
-        moveFaster(): void {
-            this.x += -2.7;
-        }
-
-
-
-        bombExplosion(): void {
-            this.x = 400;
-        }
+//        moveFaster(): void {
+//            this.x += -2.7;
+//        }
 
 
 

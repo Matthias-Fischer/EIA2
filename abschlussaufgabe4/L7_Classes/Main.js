@@ -6,16 +6,13 @@ var L7_Classes;
     let gameScore = 1;
     let ladung = 0;
     let l = 1;
-    let n = 15;
+    let n = 5;
     let m = 5;
-    var state = true;
-    let imgData;
     window.addEventListener("load", init);
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         L7_Classes.crc2 = canvas.getContext("2d");
-        imgData = L7_Classes.crc2.getImageData(0, 0, 400, 600);
         for (let i = 0; i < l; i++) {
             // Rakete erstellen
             let r = new L7_Classes.Rocket(80, 250);
@@ -37,7 +34,6 @@ var L7_Classes;
         window.setTimeout(animate, 20);
     }
     function animate() {
-        L7_Classes.crc2.putImageData(imgData, 0, 0);
         L7_Classes.crc2.fillStyle = "SlateGrey";
         L7_Classes.crc2.fillRect(0, 0, L7_Classes.crc2.canvas.width, L7_Classes.crc2.canvas.height);
         for (let i = 0; i < n; i++) {
@@ -74,7 +70,6 @@ var L7_Classes;
             if (r.x + r.w >= c.x && r.x <= c.x + c.w && r.y + 20 >= c.y && r.y <= c.y + c.h) {
                 console.log("HIT");
                 document.getElementById("overlay").style.display = "block";
-                // c.bombExplosion();
                 r.end();
                 play4();
                 play5();
@@ -107,13 +102,10 @@ var L7_Classes;
                 ladung = ladung + 1;
                 play2();
                 //Wenn 10 Punkte erreicht wurde, erh�ht sich die Kometenanzahl um 1
-                if (gameScore == 10) {
+                if (gameScore % 2 == 0) {
                     comets.push(c);
-                    console.log(c);
-                    console.log(comets);
-                    console.log("Bombe");
-                    n + 10;
-                    c.bombExplosion();
+                    console.log(comets.length);
+                    n = n + 1;
                 }
                 if (ladung >= 5) {
                     document.getElementById("ammo").style.backgroundColor = "red";
