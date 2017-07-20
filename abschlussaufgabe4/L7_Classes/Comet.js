@@ -14,19 +14,25 @@ var L7_Classes;
             this.move();
         }
         draw() {
-            L7_Classes.crc2.fillStyle = "green";
+            L7_Classes.crc2.fillStyle = "maroon";
             L7_Classes.crc2.fillRect(this.x, this.y, this.h, this.w);
         }
         move() {
-            this.x += -1.7;
+            this.x += -2.1;
             //            
             //            if (super.gameScore == 100) {
-            //                this.x += -5;    
+            //                ;    
             //            }
             if (this.x < -20) {
                 this.x = 400;
                 this.y = Math.random() * 600;
             }
+        }
+        moveFaster() {
+            this.x += -2.7;
+        }
+        bombExplosion() {
+            this.x = 400;
         }
     }
     L7_Classes.Comet = Comet;

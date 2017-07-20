@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>GalaxyKing</title>
+<title>Pixel_Storm</title>
 <meta charset="utf-8" />
 <script src="Rocket.js"></script>
 <script src="Main.js"></script>
@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="Style.css" type="text/css"/>
 </head>
 <body>
+
 
 <div class ="container">
 	<div id="overlay">
@@ -19,13 +20,25 @@
 	</div>
 	
 	<canvas width="400" height="600">
+	<img id="Himmel" width="50" height="57" src="Galaxy.jpg">
 	</canvas>
 	
 	
 	<div id="stats">
 		<div id="score"></div>
-		<div id="ammo"></div>
-		<button onmousedown="playMusic();" id="bla">Play Music</button> 
+		<div id="ammo">
+			<div id="div1"></div>
+			<div id="div2"></div>
+			<div id="div3"></div>
+			<div id="div4"></div>
+			<div id="div5"></div>
+		</div>
+		
+	    <audio id="audio" src="sound.wav" ></audio>
+	    <audio id="audio2" src="blingbling.mp3" ></audio>
+	 <!--    <audio id="audio3" src="sound.wav" autoplay repeat></audio> -->
+	    <audio id="audio4" src="explosion.mp3"></audio>
+	    <audio id="audio5" src="End.mp3"></audio>
 	</div>	
 </div>
 

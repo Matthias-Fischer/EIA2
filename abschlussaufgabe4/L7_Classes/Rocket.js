@@ -14,7 +14,7 @@ var L7_Classes;
             this.y = _y;
         }
         draw() {
-            L7_Classes.crc2.fillStyle = "red";
+            L7_Classes.crc2.fillStyle = "green";
             L7_Classes.crc2.fillRect(this.x, this.y, this.w, this.h);
             //            var img: HTMLImageElement = <HTMLImageElement>document.getElementById("Bird");
             //            crc2.drawImage(img, this.x, this.y, this.size, this.size);
@@ -34,6 +34,10 @@ var L7_Classes;
         }
         up() {
             this.velocity += this.lift;
+        }
+        end() {
+            this.x = -100;
+            this.y = 0;
         }
     }
     L7_Classes.Rocket = Rocket;

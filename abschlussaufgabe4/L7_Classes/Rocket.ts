@@ -20,7 +20,7 @@ namespace L7_Classes {
         }
 
         draw(): void {
-            crc2.fillStyle = "red";
+            crc2.fillStyle = "green";
             crc2.fillRect(this.x, this.y, this.w, this.h);
        
 //            var img: HTMLImageElement = <HTMLImageElement>document.getElementById("Bird");
@@ -46,6 +46,11 @@ namespace L7_Classes {
 
         up(): void {
             this.velocity += this.lift;
+        }
+        
+        end(): void {
+            this.x = -100; 
+            this.y = 0; 
         }
 
 

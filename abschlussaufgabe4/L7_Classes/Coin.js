@@ -4,6 +4,7 @@ var L7_Classes;
         constructor(_x, _y) {
             this.w = 20;
             this.h = 20;
+            this.radius = 12;
             //this.setRandomPosition();
             this.x = _x;
             this.y = _y;
@@ -14,14 +15,26 @@ var L7_Classes;
         }
         draw() {
             L7_Classes.crc2.fillStyle = "yellow";
-            L7_Classes.crc2.fillRect(this.x, this.y, this.h, this.w);
+            //crc2.fillRect(this.x, this.y, this.h, this.w);
+            L7_Classes.crc2.beginPath();
+            L7_Classes.crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+            L7_Classes.crc2.fill();
+            L7_Classes.crc2.strokeStyle = "black";
+            L7_Classes.crc2.closePath();
         }
         move() {
-            this.x += -1.3;
-            if (this.x < -20) {
-                this.x = 400;
+            this.x += -1.7;
+            if (this.x + this.radius < 0) {
+                this.x = 400 + this.radius;
                 this.y = Math.random() * 600;
             }
+        }
+        changePosition() {
+            this.x = 400;
+            this.y = Math.random() * 600;
+        }
+        faster() {
+            this.x += -2.3;
         }
     }
     L7_Classes.Coin = Coin;
