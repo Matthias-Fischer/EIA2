@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>PixelStorm</title>
+<meta charset="utf-8" />
+<script src="Rocket.js"></script>
+<script src="Main.js"></script>
+<script src="Comet.js"></script>
+<script src="Coin.js"></script>
+<link rel="stylesheet" href="Style.css" type="text/css"/>
+</head>
+<body>
+
+
+<div class ="container">
+	<div id="overlay">
+		Game over! <br>
+		Your final score: <span id="final_score"></span>	
+		<br>
+		<a onClick = "window.location.reload()" href = "#">Click to play again</a>
+	</div>
+	
+	<canvas width="400" height="600">
+	<img id="Himmel" width="50" height="57" src="Galaxy.jpg">
+	</canvas>
+	
+	
+	<div id="stats">
+		<div id="score"></div>
+		<div id="Enemy"></div>
+	    <audio id="audio" src="sound.wav" ></audio>
+	    <audio id="audio2" src="blingbling.mp3" ></audio>
+	 <!--    <audio id="audio3" src="sound.wav" autoplay repeat></audio> -->
+	    <audio id="audio4" src="explosion.mp3"></audio>
+	    <audio id="audio5" src="End.mp3"></audio>
+	</div>	
+</div>
+
+
+
+</body>

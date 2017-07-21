@@ -1,3 +1,8 @@
+//Aufgabe: 12 - Abschlussaufgabe
+//Name: Matthias Fischer
+//Matrikel: 255035
+//Datum: 21.07.17 
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var L7_Classes;
 (function (L7_Classes) {
     class Coin {

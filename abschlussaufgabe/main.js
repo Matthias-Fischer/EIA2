@@ -8,7 +8,7 @@ var L10;
         canvas = document.getElementsByTagName("canvas")[0];
         L10.crc2 = canvas.getContext("2d");
         for (let i = 0; i < n; i++) {
-            let s = new Square(200, 150);
+            let s = new L10.Square(200, 150);
             squares[i] = s;
         }
         console.log(squares);
