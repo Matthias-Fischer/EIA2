@@ -6,15 +6,14 @@ namespace L7_Classes {
     let gameScore: number = 0;
 
     let l: number = 1;
-    let n: number = 10;
+    let n: number = 8;
     let m: number = 5;
 
     window.addEventListener("load", init);
-    
-    alert("Herzlich Willkommen bei »PixelStorm« " +
-        "Falls Du die Anleitung noch nicht gelesen haben solltest, hier nochmal eine kurze Erklärung: Auf Computern steuerst du die Rakete durch Klicken auf den Bildschirm " +
-        "(hoch/runter), auf Touch-Devices durch tippen. Let's Go!");
 
+    alert("Herzlich Willkommen bei >>PixelStorm<< " +
+        "Falls Du die Anleitung noch nicht gelesen haben solltest, hier nochmal eine kurze ErklÃ¤rung: Auf Computern steuerst du die Rakete durch Klicken auf den Bildschirm " +
+        "(hoch/runter automatisch), auf Touch-Devices durch tippen. Pralle nicht mit den Kometen zusammen und sammle so viel MÃ¼nzen wie mÃ¶glich! Let's Go!");
 
 
     function init(_event: Event): void {
@@ -22,6 +21,14 @@ namespace L7_Classes {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         document.addEventListener("click", ausweichen);
+        document.addEventListener("touch", ausweichen);
+
+        var my_gradient = crc2.createLinearGradient(0, 0, 0, 200);
+        my_gradient.addColorStop(0, "#0080FF");
+        my_gradient.addColorStop(1, "#81F7F3");
+
+        crc2.fillStyle = my_gradient;
+        crc2.fillRect(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < l; i++) {
             // Rakete erstellen
@@ -29,13 +36,11 @@ namespace L7_Classes {
             rockets[i] = r;
         }
 
-
         for (let i: number = 0; i < n; i++) {
             // Kometen erstellen
             let c: Comet = new Comet(Math.random() * 400, Math.random() * 600);
             comets[i] = c;
         }
-
 
         for (let i: number = 0; i < m; i++) {
             // Coins erstellen
@@ -50,14 +55,17 @@ namespace L7_Classes {
     }
 
 
-
-
-
-
     function animate(): void {
 
-        crc2.fillStyle = "SlateGrey";
-        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        //        crc2.fillStyle = "black";
+        //        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        var my_gradient = crc2.createLinearGradient(0, 0, 0, 200);
+        my_gradient.addColorStop(0, "#0080FF");
+        my_gradient.addColorStop(1, "#81F7F3");
+
+        crc2.fillStyle = my_gradient;
+        crc2.fillRect(0, 0, 400, 600);
+
 
         for (let i: number = 0; i < n; i++) {
             let c: Comet = comets[i];
@@ -75,41 +83,20 @@ namespace L7_Classes {
             r.update();
         }
 
-
-
         window.setTimeout(animate, 20);
         hitDetect();
     }
 
 
-
-
-    document.onkeydown = function(_event: KeyboardEvent): void {
+    function ausweichen(): void {
         for (let i: number = 0; i < l; i++) {
             let r: Rocket = rockets[i];
-            var x: number = _event.keyCode;
-            if (x == 32) {
-                //console.log(x);
-                r.up();
-            }
+            r.up();
         }
     }
 
-    //    document.addEventListener("click", ausweichen);
-    //    
-        function ausweichen(): void {
-             for (let i: number = 0; i < l; i++) {
-                let r: Rocket = rockets[i];
-                    r.up();
-                }
-            }  
-        }    
-
-
 
     function hitDetect(): void {
-
-
 
         for (let i: number = 0; i < comets.length; i++) {
             var c: Comet = comets[i];
@@ -123,9 +110,7 @@ namespace L7_Classes {
                 r.end();
                 play4();
                 play5();
-
             }
-
         }
 
 
@@ -158,14 +143,14 @@ namespace L7_Classes {
                 gameScore = gameScore + 1;
                 play2();
 
-                //Wenn 10 Punkte erreicht wurde, erhöht sich die Kometenanzahl um 1
-                if (gameScore % 10 == 0) {
-                    comets.push(c);
+                //Wenn 5 Punkte erreicht wurde, erhï¿½ht sich die Kometenanzahl um 1
+                if (gameScore % 5 == 0) {
                     console.log(comets.length);
-                    // n = n + 1; Durch diese Anweisung sollte eigentlich ein neuer Komet gezeichnet werden. Dies funktioniert leider noch nicht
-                    
+                    // nun sollte ein neuer Komet gezeichnet werden
+                    let c: Comet = new Comet(-10, Math.random() * 600);
+                    comets.push(c);
+                    n++;
                 }
-                
 
                 document.getElementById("score").textContent = "Score: " + gameScore;
                 document.getElementById("final_score").textContent = "Score: " + gameScore;

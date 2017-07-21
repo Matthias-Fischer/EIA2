@@ -5,6 +5,7 @@ namespace L7_Classes {
         y: number;
         w: number = 20;
         h: number = 20;
+        n: number = 10;
 
 
         constructor(_x: number, _y: number) {
@@ -32,7 +33,7 @@ namespace L7_Classes {
             }
 
         }
-        
+
     }
 
 }

@@ -4,6 +4,7 @@ var L7_Classes;
         constructor(_x, _y) {
             this.w = 20;
             this.h = 20;
+            this.n = 10;
             //this.setRandomPosition();
             this.x = _x;
             this.y = _y;
