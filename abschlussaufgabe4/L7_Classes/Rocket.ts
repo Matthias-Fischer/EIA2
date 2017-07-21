@@ -10,9 +10,6 @@ namespace L7_Classes {
         gravity: number = 0.8;
         lift: number = -15;
         velocity: number = 0;
-        
-   
-
 
         constructor(_x: number, _y: number) {
             this.x = _x;
@@ -22,10 +19,6 @@ namespace L7_Classes {
         draw(): void {
             crc2.fillStyle = "green";
             crc2.fillRect(this.x, this.y, this.w, this.h);
-       
-//            var img: HTMLImageElement = <HTMLImageElement>document.getElementById("Bird");
-//            crc2.drawImage(img, this.x, this.y, this.size, this.size);
-//            console.log("Image gemalt");
         }
 
         update(): void {
@@ -36,26 +29,24 @@ namespace L7_Classes {
 
             if (this.y > 580) {
                 document.getElementById("overlay").style.display = "block";
+                this.x = -100;
+                this.y = 0;
             }
 
             if (this.y < 0) {
-                document.getElementById("overlay").style.display = "block";  
+                document.getElementById("overlay").style.display = "block";
+                this.x = -100;
+                this.y = 0;
             }
         }
-
 
         up(): void {
             this.velocity += this.lift;
         }
-        
+
         end(): void {
-            this.x = -100; 
-            this.y = 0; 
+            this.x = -100;
+            this.y = 0;
         }
-
-
-
-
     }
-
 }

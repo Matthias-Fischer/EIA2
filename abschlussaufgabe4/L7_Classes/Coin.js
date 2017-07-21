@@ -5,7 +5,6 @@ var L7_Classes;
             this.w = 20;
             this.h = 20;
             this.radius = 12;
-            //this.setRandomPosition();
             this.x = _x;
             this.y = _y;
         }
@@ -15,7 +14,6 @@ var L7_Classes;
         }
         draw() {
             L7_Classes.crc2.fillStyle = "yellow";
-            //crc2.fillRect(this.x, this.y, this.h, this.w);
             L7_Classes.crc2.beginPath();
             L7_Classes.crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
             L7_Classes.crc2.fill();

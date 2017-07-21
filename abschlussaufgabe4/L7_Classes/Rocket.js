@@ -16,9 +16,6 @@ var L7_Classes;
         draw() {
             L7_Classes.crc2.fillStyle = "green";
             L7_Classes.crc2.fillRect(this.x, this.y, this.w, this.h);
-            //            var img: HTMLImageElement = <HTMLImageElement>document.getElementById("Bird");
-            //            crc2.drawImage(img, this.x, this.y, this.size, this.size);
-            //            console.log("Image gemalt");
         }
         update() {
             this.draw();
@@ -27,9 +24,13 @@ var L7_Classes;
             this.y += this.velocity;
             if (this.y > 580) {
                 document.getElementById("overlay").style.display = "block";
+                this.x = -100;
+                this.y = 0;
             }
             if (this.y < 0) {
                 document.getElementById("overlay").style.display = "block";
+                this.x = -100;
+                this.y = 0;
             }
         }
         up() {

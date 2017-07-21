@@ -4,16 +4,18 @@ var L7_Classes;
     let comets = [];
     let coins = [];
     let gameScore = 0;
-    let ladung = 0;
     let l = 1;
-    let n = 5;
+    let n = 10;
     let m = 5;
     window.addEventListener("load", init);
-    document.addEventListener("click", ausweichen);
+    alert("Herzlich Willkommen bei �PixelStorm� " +
+        "Falls Du die Anleitung noch nicht gelesen haben solltest, hier nochmal eine kurze Erkl�rung: Auf Computern steuerst du die Rakete durch Klicken auf den Bildschirm " +
+        "(hoch/runter), auf Touch-Devices durch tippen. Let's Go!");
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         L7_Classes.crc2 = canvas.getContext("2d");
+        document.addEventListener("click", ausweichen);
         for (let i = 0; i < l; i++) {
             // Rakete erstellen
             let r = new L7_Classes.Rocket(80, 250);
@@ -62,6 +64,8 @@ var L7_Classes;
             }
         }
     };
+    //    document.addEventListener("click", ausweichen);
+    //    
     function ausweichen() {
         for (let i = 0; i < l; i++) {
             let r = rockets[i];
@@ -83,9 +87,6 @@ function hitDetect() {
             play5();
         }
     }
-    //        function play() {
-    //            var audio = document.getElementById("audio");
-    //            audio.play(); }
     function play2() {
         var audio = document.getElementById("audio2");
         audio.play();
@@ -107,27 +108,16 @@ function hitDetect() {
             k.changePosition();
             console.log("Coin eingesammelt");
             gameScore = gameScore + 1;
-            ladung = ladung + 1;
             play2();
             //Wenn 10 Punkte erreicht wurde, erh�ht sich die Kometenanzahl um 1
-            if (gameScore % 2 == 0) {
+            if (gameScore % 10 == 0) {
                 comets.push(c);
                 console.log(comets.length);
-                n = n + 1;
-            }
-            if (ladung >= 5) {
-                document.getElementById("ammo").style.backgroundColor = "red";
-                document.getElementById("ammo").addEventListener("click", destroyComets);
             }
             document.getElementById("score").textContent = "Score: " + gameScore;
             document.getElementById("final_score").textContent = "Score: " + gameScore;
-            document.getElementById("ammo").textContent = "Munni: " + ladung;
+            document.getElementById("Enemy").textContent = "Kometen: " + comets.length;
         }
     }
-}
-function destroyComets() {
-    ladung = 0;
-    console.log("Jetzt");
-    document.getElementById("ammo").style.backgroundColor = "black";
 }
 //# sourceMappingURL=Main.js.map

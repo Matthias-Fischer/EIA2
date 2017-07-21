@@ -32,13 +32,7 @@ namespace L7_Classes {
             }
 
         }
-
-//        moveFaster(): void {
-//            this.x += -2.7;
-//        }
-
-
-
+        
     }
 
 }

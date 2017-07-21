@@ -4,21 +4,24 @@ namespace L7_Classes {
     let comets: Comet[] = [];
     let coins: Coin[] = [];
     let gameScore: number = 0;
-    let ladung: number = 0;
 
     let l: number = 1;
-    let n: number = 5;
+    let n: number = 10;
     let m: number = 5;
 
     window.addEventListener("load", init);
     
-    document.addEventListener("click", ausweichen);
+    alert("Herzlich Willkommen bei »PixelStorm« " +
+        "Falls Du die Anleitung noch nicht gelesen haben solltest, hier nochmal eine kurze Erklärung: Auf Computern steuerst du die Rakete durch Klicken auf den Bildschirm " +
+        "(hoch/runter), auf Touch-Devices durch tippen. Let's Go!");
+
 
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
+        document.addEventListener("click", ausweichen);
 
         for (let i: number = 0; i < l; i++) {
             // Rakete erstellen
@@ -91,14 +94,16 @@ namespace L7_Classes {
             }
         }
     }
-    
-    function ausweichen(): void {
-         for (let i: number = 0; i < l; i++) {
-            let r: Rocket = rockets[i];
-                r.up();
-            }
-        }  
-    }    
+
+    //    document.addEventListener("click", ausweichen);
+    //    
+        function ausweichen(): void {
+             for (let i: number = 0; i < l; i++) {
+                let r: Rocket = rockets[i];
+                    r.up();
+                }
+            }  
+        }    
 
 
 
@@ -123,9 +128,6 @@ namespace L7_Classes {
 
         }
 
-        //        function play() {
-        //            var audio = document.getElementById("audio");
-        //            audio.play(); }
 
         function play2() {
             var audio = document.getElementById("audio2");
@@ -154,41 +156,23 @@ namespace L7_Classes {
                 k.changePosition();
                 console.log("Coin eingesammelt");
                 gameScore = gameScore + 1;
-                ladung = ladung + 1;
                 play2();
 
                 //Wenn 10 Punkte erreicht wurde, erhöht sich die Kometenanzahl um 1
-                if (gameScore % 2 == 0) {
+                if (gameScore % 10 == 0) {
                     comets.push(c);
                     console.log(comets.length);
-                    n = n + 1;
+                    // n = n + 1; Durch diese Anweisung sollte eigentlich ein neuer Komet gezeichnet werden. Dies funktioniert leider noch nicht
+                    
                 }
-
-                if (ladung >= 5) {
-                    document.getElementById("ammo").style.backgroundColor = "red";
-                    document.getElementById("ammo").addEventListener("click", destroyComets);
-                }
+                
 
                 document.getElementById("score").textContent = "Score: " + gameScore;
                 document.getElementById("final_score").textContent = "Score: " + gameScore;
-                document.getElementById("ammo").textContent = "Munni: " + ladung;
+                document.getElementById("Enemy").textContent = "Kometen: " + comets.length;
 
-
-                //                if (ladung > 100) {
-                //                    console.log("Magnetfunktion bereit");
-                //                    document.addEventListener("click", destroyComets);
-                //                }
             }
         }
 
     }
-
-
-    function destroyComets(): void {
-        ladung = 0;
-        console.log("Jetzt");
-        document.getElementById("ammo").style.backgroundColor = "black";
-    }
-
-
 }
