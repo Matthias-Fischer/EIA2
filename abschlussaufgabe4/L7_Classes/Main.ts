@@ -3,7 +3,7 @@ namespace L7_Classes {
     let rockets: Rocket[] = [];
     let comets: Comet[] = [];
     let coins: Coin[] = [];
-    let gameScore: number = 1;
+    let gameScore: number = 0;
     let ladung: number = 0;
 
     let l: number = 1;
@@ -11,6 +11,8 @@ namespace L7_Classes {
     let m: number = 5;
 
     window.addEventListener("load", init);
+    
+    document.addEventListener("click", ausweichen);
 
 
     function init(_event: Event): void {
@@ -89,6 +91,14 @@ namespace L7_Classes {
             }
         }
     }
+    
+    function ausweichen(): void {
+         for (let i: number = 0; i < l; i++) {
+            let r: Rocket = rockets[i];
+                r.up();
+            }
+        }  
+    }    
 
 
 
